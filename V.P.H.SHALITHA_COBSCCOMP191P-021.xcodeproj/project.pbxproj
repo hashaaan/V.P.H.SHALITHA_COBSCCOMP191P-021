@@ -18,7 +18,6 @@
 		D6F6F91E250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F91D250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021UITests.swift */; };
 		D6FE0975250E3D330040560E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0966250E3D310040560E /* ResultViewController.swift */; };
 		D6FE0976250E3D330040560E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0967250E3D310040560E /* SignUpViewController.swift */; };
-		D6FE0977250E3D330040560E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0968250E3D310040560E /* TestTableViewCell.swift */; };
 		D6FE0978250E3D330040560E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0969250E3D310040560E /* SignInViewController.swift */; };
 		D6FE0979250E3D330040560E /* SafeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096A250E3D310040560E /* SafeActionsViewController.swift */; };
 		D6FE097A250E3D330040560E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096B250E3D320040560E /* AuthViewController.swift */; };
@@ -29,7 +28,6 @@
 		D6FE097F250E3D330040560E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0970250E3D320040560E /* MainTabBarController.swift */; };
 		D6FE0980250E3D330040560E /* SurveyCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0971250E3D320040560E /* SurveyCVCell.swift */; };
 		D6FE0981250E3D330040560E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0972250E3D330040560E /* SettingsViewController.swift */; };
-		D6FE0982250E3D330040560E /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0973250E3D330040560E /* TestTableView.swift */; };
 		D6FE0983250E3D330040560E /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0974250E3D330040560E /* SurveyViewController.swift */; };
 		D6FE0987250E3D7E0040560E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0985250E3D7E0040560E /* User.swift */; };
 		D6FE0988250E3D7E0040560E /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0986250E3D7E0040560E /* UserAnnotation.swift */; };
@@ -81,7 +79,6 @@
 		D6F6F91F250E0EC100C3584E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FE0966250E3D310040560E /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		D6FE0967250E3D310040560E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		D6FE0968250E3D310040560E /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		D6FE0969250E3D310040560E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D6FE096A250E3D310040560E /* SafeActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeActionsViewController.swift; sourceTree = "<group>"; };
 		D6FE096B250E3D320040560E /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +89,6 @@
 		D6FE0970250E3D320040560E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D6FE0971250E3D320040560E /* SurveyCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyCVCell.swift; sourceTree = "<group>"; };
 		D6FE0972250E3D330040560E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		D6FE0973250E3D330040560E /* TestTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
 		D6FE0974250E3D330040560E /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		D6FE0985250E3D7E0040560E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D6FE0986250E3D7E0040560E /* UserAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
@@ -230,8 +226,6 @@
 				D6FE0967250E3D310040560E /* SignUpViewController.swift */,
 				D6FE0971250E3D320040560E /* SurveyCVCell.swift */,
 				D6FE0974250E3D330040560E /* SurveyViewController.swift */,
-				D6FE0973250E3D330040560E /* TestTableView.swift */,
-				D6FE0968250E3D310040560E /* TestTableViewCell.swift */,
 				D6FE096F250E3D320040560E /* UpdateViewController.swift */,
 			);
 			path = Controller;
@@ -516,7 +510,6 @@
 				D6FE0993250E3DED0040560E /* Extensions.swift in Sources */,
 				D6FE098B250E3D980040560E /* AuthUIButton.swift in Sources */,
 				D6FE0998250E407C0040560E /* Service.swift in Sources */,
-				D6FE0982250E3D330040560E /* TestTableView.swift in Sources */,
 				D6F6F8FC250E0EBD00C3584E /* AppDelegate.swift in Sources */,
 				D6FE0979250E3D330040560E /* SafeActionsViewController.swift in Sources */,
 				D6FE0978250E3D330040560E /* SignInViewController.swift in Sources */,
@@ -536,7 +529,6 @@
 				D6FE0987250E3D7E0040560E /* User.swift in Sources */,
 				D6FE098C250E3D980040560E /* LocationInputUIView.swift in Sources */,
 				D6FE0975250E3D330040560E /* ResultViewController.swift in Sources */,
-				D6FE0977250E3D330040560E /* TestTableViewCell.swift in Sources */,
 				D6FE097E250E3D330040560E /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
