@@ -12,11 +12,34 @@
 		CBA6FEFA4E58F30AD79942B8 /* Pods_V_P_H_SHALITHA_COBSCCOMP191P_021Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0E312903DF0286DE618A51 /* Pods_V_P_H_SHALITHA_COBSCCOMP191P_021Tests.framework */; };
 		D65F20FD250E1BA5006E9CF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D65F20FC250E1BA5006E9CF2 /* GoogleService-Info.plist */; };
 		D6F6F8FC250E0EBD00C3584E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F8FB250E0EBD00C3584E /* AppDelegate.swift */; };
-		D6F6F900250E0EBD00C3584E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F8FF250E0EBD00C3584E /* ViewController.swift */; };
 		D6F6F905250E0EC000C3584E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6F6F904250E0EC000C3584E /* Assets.xcassets */; };
 		D6F6F908250E0EC000C3584E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F6F906250E0EC000C3584E /* LaunchScreen.storyboard */; };
 		D6F6F913250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F912250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021Tests.swift */; };
 		D6F6F91E250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F6F91D250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021UITests.swift */; };
+		D6FE0975250E3D330040560E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0966250E3D310040560E /* ResultViewController.swift */; };
+		D6FE0976250E3D330040560E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0967250E3D310040560E /* SignUpViewController.swift */; };
+		D6FE0977250E3D330040560E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0968250E3D310040560E /* TestTableViewCell.swift */; };
+		D6FE0978250E3D330040560E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0969250E3D310040560E /* SignInViewController.swift */; };
+		D6FE0979250E3D330040560E /* SafeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096A250E3D310040560E /* SafeActionsViewController.swift */; };
+		D6FE097A250E3D330040560E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096B250E3D320040560E /* AuthViewController.swift */; };
+		D6FE097B250E3D330040560E /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096C250E3D320040560E /* ContactViewController.swift */; };
+		D6FE097C250E3D330040560E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096D250E3D320040560E /* HomeViewController.swift */; };
+		D6FE097D250E3D330040560E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096E250E3D320040560E /* ProfileViewController.swift */; };
+		D6FE097E250E3D330040560E /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE096F250E3D320040560E /* UpdateViewController.swift */; };
+		D6FE097F250E3D330040560E /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0970250E3D320040560E /* MainTabBarController.swift */; };
+		D6FE0980250E3D330040560E /* SurveyCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0971250E3D320040560E /* SurveyCVCell.swift */; };
+		D6FE0981250E3D330040560E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0972250E3D330040560E /* SettingsViewController.swift */; };
+		D6FE0982250E3D330040560E /* TestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0973250E3D330040560E /* TestTableView.swift */; };
+		D6FE0983250E3D330040560E /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0974250E3D330040560E /* SurveyViewController.swift */; };
+		D6FE0987250E3D7E0040560E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0985250E3D7E0040560E /* User.swift */; };
+		D6FE0988250E3D7E0040560E /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0986250E3D7E0040560E /* UserAnnotation.swift */; };
+		D6FE098B250E3D980040560E /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0989250E3D980040560E /* AuthUIButton.swift */; };
+		D6FE098C250E3D980040560E /* LocationInputUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE098A250E3D980040560E /* LocationInputUIView.swift */; };
+		D6FE0992250E3DED0040560E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE098E250E3DED0040560E /* Contact.swift */; };
+		D6FE0993250E3DED0040560E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE098F250E3DED0040560E /* Extensions.swift */; };
+		D6FE0994250E3DED0040560E /* ContactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0990250E3DED0040560E /* ContactAPI.swift */; };
+		D6FE0995250E3DED0040560E /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0991250E3DED0040560E /* LocationHandler.swift */; };
+		D6FE0998250E407C0040560E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0997250E407C0040560E /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +70,6 @@
 		D65F20FC250E1BA5006E9CF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6F6F8F8250E0EBD00C3584E /* NIBM COVID19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM COVID19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F6F8FB250E0EBD00C3584E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D6F6F8FF250E0EBD00C3584E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D6F6F904250E0EC000C3584E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6F6F907250E0EC000C3584E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6F6F909250E0EC000C3584E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +79,30 @@
 		D6F6F919250E0EC100C3584E /* V.P.H.SHALITHA_COBSCCOMP191P-021UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "V.P.H.SHALITHA_COBSCCOMP191P-021UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6F6F91D250E0EC100C3584E /* V_P_H_SHALITHA_COBSCCOMP191P_021UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V_P_H_SHALITHA_COBSCCOMP191P_021UITests.swift; sourceTree = "<group>"; };
 		D6F6F91F250E0EC100C3584E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6FE0966250E3D310040560E /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D6FE0967250E3D310040560E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D6FE0968250E3D310040560E /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		D6FE0969250E3D310040560E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D6FE096A250E3D310040560E /* SafeActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeActionsViewController.swift; sourceTree = "<group>"; };
+		D6FE096B250E3D320040560E /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		D6FE096C250E3D320040560E /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		D6FE096D250E3D320040560E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D6FE096E250E3D320040560E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D6FE096F250E3D320040560E /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		D6FE0970250E3D320040560E /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		D6FE0971250E3D320040560E /* SurveyCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyCVCell.swift; sourceTree = "<group>"; };
+		D6FE0972250E3D330040560E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D6FE0973250E3D330040560E /* TestTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableView.swift; sourceTree = "<group>"; };
+		D6FE0974250E3D330040560E /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		D6FE0985250E3D7E0040560E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D6FE0986250E3D7E0040560E /* UserAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
+		D6FE0989250E3D980040560E /* AuthUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUIButton.swift; sourceTree = "<group>"; };
+		D6FE098A250E3D980040560E /* LocationInputUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationInputUIView.swift; sourceTree = "<group>"; };
+		D6FE098E250E3DED0040560E /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		D6FE098F250E3DED0040560E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D6FE0990250E3DED0040560E /* ContactAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAPI.swift; sourceTree = "<group>"; };
+		D6FE0991250E3DED0040560E /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		D6FE0997250E407C0040560E /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		E6CBB71729505A03789FC72D /* Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig"; path = "Target Support Files/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC2BDEFC1724BC5D2EE8FEB1 /* Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig"; path = "Target Support Files/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,8 +183,12 @@
 		D6F6F8FA250E0EBD00C3584E /* V.P.H.SHALITHA_COBSCCOMP191P-021 */ = {
 			isa = PBXGroup;
 			children = (
+				D6FE0996250E40660040560E /* Service */,
+				D6FE098D250E3DC20040560E /* Utils */,
+				D6FE0984250E3D620040560E /* Model */,
+				D6FE0965250E3CFD0040560E /* View */,
+				D6FE0964250E3CF00040560E /* Controller */,
 				D6F6F8FB250E0EBD00C3584E /* AppDelegate.swift */,
-				D6F6F8FF250E0EBD00C3584E /* ViewController.swift */,
 				D6F6F904250E0EC000C3584E /* Assets.xcassets */,
 				D6F6F906250E0EC000C3584E /* LaunchScreen.storyboard */,
 				D6F6F909250E0EC000C3584E /* Info.plist */,
@@ -163,6 +213,65 @@
 				D6F6F91F250E0EC100C3584E /* Info.plist */,
 			);
 			path = "V.P.H.SHALITHA_COBSCCOMP191P-021UITests";
+			sourceTree = "<group>";
+		};
+		D6FE0964250E3CF00040560E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6FE096B250E3D320040560E /* AuthViewController.swift */,
+				D6FE096C250E3D320040560E /* ContactViewController.swift */,
+				D6FE096D250E3D320040560E /* HomeViewController.swift */,
+				D6FE0970250E3D320040560E /* MainTabBarController.swift */,
+				D6FE096E250E3D320040560E /* ProfileViewController.swift */,
+				D6FE0966250E3D310040560E /* ResultViewController.swift */,
+				D6FE096A250E3D310040560E /* SafeActionsViewController.swift */,
+				D6FE0972250E3D330040560E /* SettingsViewController.swift */,
+				D6FE0969250E3D310040560E /* SignInViewController.swift */,
+				D6FE0967250E3D310040560E /* SignUpViewController.swift */,
+				D6FE0971250E3D320040560E /* SurveyCVCell.swift */,
+				D6FE0974250E3D330040560E /* SurveyViewController.swift */,
+				D6FE0973250E3D330040560E /* TestTableView.swift */,
+				D6FE0968250E3D310040560E /* TestTableViewCell.swift */,
+				D6FE096F250E3D320040560E /* UpdateViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6FE0965250E3CFD0040560E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6FE0989250E3D980040560E /* AuthUIButton.swift */,
+				D6FE098A250E3D980040560E /* LocationInputUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D6FE0984250E3D620040560E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6FE0985250E3D7E0040560E /* User.swift */,
+				D6FE0986250E3D7E0040560E /* UserAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6FE098D250E3DC20040560E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D6FE098E250E3DED0040560E /* Contact.swift */,
+				D6FE0990250E3DED0040560E /* ContactAPI.swift */,
+				D6FE098F250E3DED0040560E /* Extensions.swift */,
+				D6FE0991250E3DED0040560E /* LocationHandler.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D6FE0996250E40660040560E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D6FE0997250E407C0040560E /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,8 +513,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F6F900250E0EBD00C3584E /* ViewController.swift in Sources */,
+				D6FE0993250E3DED0040560E /* Extensions.swift in Sources */,
+				D6FE098B250E3D980040560E /* AuthUIButton.swift in Sources */,
+				D6FE0998250E407C0040560E /* Service.swift in Sources */,
+				D6FE0982250E3D330040560E /* TestTableView.swift in Sources */,
 				D6F6F8FC250E0EBD00C3584E /* AppDelegate.swift in Sources */,
+				D6FE0979250E3D330040560E /* SafeActionsViewController.swift in Sources */,
+				D6FE0978250E3D330040560E /* SignInViewController.swift in Sources */,
+				D6FE0992250E3DED0040560E /* Contact.swift in Sources */,
+				D6FE097A250E3D330040560E /* AuthViewController.swift in Sources */,
+				D6FE097C250E3D330040560E /* HomeViewController.swift in Sources */,
+				D6FE0983250E3D330040560E /* SurveyViewController.swift in Sources */,
+				D6FE097D250E3D330040560E /* ProfileViewController.swift in Sources */,
+				D6FE097F250E3D330040560E /* MainTabBarController.swift in Sources */,
+				D6FE0981250E3D330040560E /* SettingsViewController.swift in Sources */,
+				D6FE0988250E3D7E0040560E /* UserAnnotation.swift in Sources */,
+				D6FE0995250E3DED0040560E /* LocationHandler.swift in Sources */,
+				D6FE097B250E3D330040560E /* ContactViewController.swift in Sources */,
+				D6FE0976250E3D330040560E /* SignUpViewController.swift in Sources */,
+				D6FE0994250E3DED0040560E /* ContactAPI.swift in Sources */,
+				D6FE0980250E3D330040560E /* SurveyCVCell.swift in Sources */,
+				D6FE0987250E3D7E0040560E /* User.swift in Sources */,
+				D6FE098C250E3D980040560E /* LocationInputUIView.swift in Sources */,
+				D6FE0975250E3D330040560E /* ResultViewController.swift in Sources */,
+				D6FE0977250E3D330040560E /* TestTableViewCell.swift in Sources */,
+				D6FE097E250E3D330040560E /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
