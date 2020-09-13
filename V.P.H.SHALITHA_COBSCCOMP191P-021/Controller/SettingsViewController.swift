@@ -7,21 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class SettingsViewController: UIViewController, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
-      cell.textLabel?.text = contacts[indexPath.row].name
-      return cell
-    }
-    
-    private let contacts = ContactAPI.getContacts() // model
-    let settingsTableView = UITableView() // view
+class SettingsViewController: UIViewController {
     
     private let titleLbl: UILabel = {
         let label = UILabel()
@@ -29,6 +17,39 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         label.font = UIFont(name: "Avenir-Light", size: 30)
         label.textColor = UIColor.black
         return label
+    }()
+    
+    private let profileTile: UIView = {
+        let tile = UIView()
+        tile.backgroundColor = .white
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = .lightGray
+        tile.addSubview(separatorView)
+        separatorView.anchor(left: tile.leftAnchor, bottom: tile.bottomAnchor, right: tile.rightAnchor, paddingLeft: 8, paddingRight: 8, height: 0.75)
+        
+        return tile
+    }()
+    
+    private let contactTile: UIView = {
+        let tile = UIView()
+        tile.backgroundColor = .white
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = .lightGray
+        tile.addSubview(separatorView)
+        separatorView.anchor(left: tile.leftAnchor, bottom: tile.bottomAnchor, right: tile.rightAnchor, paddingLeft: 8, paddingRight: 8, height: 0.75)
+        
+        return tile
+    }()
+    
+    private let logoutButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.setTitle("LOGOUT", for: .normal)
+        button.setTitleColor(.darkGray, for: .normal)
+        button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
+        return button
     }()
     
     var safeArea: UILayoutGuide!
@@ -39,6 +60,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         safeArea = view.layoutMarginsGuide
         configUI()
     }
+    
+    // MARK: - Selectors
+    
+    @objc func handleLogout() {
+       signOut()
+    }
+    
+    // MARK: - Helper Function
 
     func configUI() {
         configNavBar()
@@ -49,20 +78,35 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         titleLbl.anchor(top: safeArea.topAnchor, paddingTop: 20)
         titleLbl.centerX(inView: view)
         
-        view.addSubview(settingsTableView)
-        settingsTableView.translatesAutoresizingMaskIntoConstraints = false
-        settingsTableView.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 20).isActive = true
-        settingsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        settingsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        settingsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        settingsTableView.dataSource = self
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
+        let stack = UIStackView(arrangedSubviews: [profileTile, contactTile])
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.spacing = 0
+        
+        view.addSubview(stack)
+        stack.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, height: 180)
+        
+        view.addSubview(logoutButton)
+        logoutButton.anchor(left: view.leftAnchor, bottom: safeArea.bottomAnchor, right: view.rightAnchor, height: 60)
         
     }
     
     func configNavBar() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .default
+    }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: AuthViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        } catch {
+            print("DEBUG: sign out error!")
+        }
     }
 
 }

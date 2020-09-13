@@ -40,7 +40,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         checkUserAuthenticated()
         enableLocationServices()
-        //signOut()
         view.backgroundColor = .white
     }
     
@@ -92,19 +91,6 @@ class HomeViewController: UIViewController {
             }
         } else {
             configController()
-        }
-    }
-    
-    func signOut() {
-        do {
-            try Auth.auth().signOut()
-            DispatchQueue.main.async {
-                let nav = UINavigationController(rootViewController: AuthViewController())
-                nav.modalPresentationStyle = .fullScreen
-                self.present(nav, animated: true, completion: nil)
-            }
-        } catch {
-            print("DEBUG: sign out error!")
         }
     }
     
