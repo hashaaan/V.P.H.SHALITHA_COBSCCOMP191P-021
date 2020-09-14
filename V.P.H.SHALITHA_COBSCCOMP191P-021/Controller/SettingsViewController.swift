@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
         
         let title = UILabel()
         title.text = "Profile"
-        title.textColor = .darkGray
+        title.textColor = .black
         tile.addSubview(title)
         //title.backgroundColor = .green
         title.anchor(top: tile.topAnchor, left: tile.leftAnchor, bottom: tile.bottomAnchor, paddingLeft: 20)
@@ -38,6 +38,7 @@ class SettingsViewController: UIViewController {
         let arrow = UIImageView()
         arrow.image = UIImage(systemName: "chevron.right")
         //arrow.backgroundColor = .green
+        arrow.tintColor = .black
         arrow.layer.masksToBounds = true
         tile.addSubview(arrow)
         arrow.anchor(right: tile.rightAnchor, paddingRight: 20, width: 14, height: 24)
@@ -59,7 +60,7 @@ class SettingsViewController: UIViewController {
         
         let title = UILabel()
         title.text = "Contact Us / About Us"
-        title.textColor = .darkGray
+        title.textColor = .black
         tile.addSubview(title)
         //title.backgroundColor = .green
         title.anchor(top: tile.topAnchor, left: tile.leftAnchor, bottom: tile.bottomAnchor, paddingLeft: 20)
@@ -68,6 +69,7 @@ class SettingsViewController: UIViewController {
         let arrow = UIImageView()
         arrow.image = UIImage(systemName: "chevron.right")
         //arrow.backgroundColor = .green
+        arrow.tintColor = .black
         arrow.layer.masksToBounds = true
         tile.addSubview(arrow)
         arrow.anchor(right: tile.rightAnchor, paddingRight: 20, width: 14, height: 24)
@@ -124,7 +126,9 @@ class SettingsViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .white
         button.setTitle("LOGOUT", for: .normal)
-        button.setTitleColor(.darkGray, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 14)
+        button.addTextSpacing(2)
         button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
         return button
     }()
