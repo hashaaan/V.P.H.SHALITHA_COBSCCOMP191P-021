@@ -11,6 +11,10 @@ import FirebaseAuth
 
 class SettingsViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    var safeArea: UILayoutGuide!
+    
     private let titleLbl: UILabel = {
         let label = UILabel()
         label.text = "Settings"
@@ -124,9 +128,6 @@ class SettingsViewController: UIViewController {
         button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
         return button
     }()
-    
-    var safeArea: UILayoutGuide!
-    var characters = ["Link", "Zelda", "Ganondorf", "Midna"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,11 +142,15 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func showProfile() {
-       print("Profile!")
+        let vc = ProfileViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func showContact() {
-       print("Contact Us!")
+        let vc = ContactViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func handleShare() {

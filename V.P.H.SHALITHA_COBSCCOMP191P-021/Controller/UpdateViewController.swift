@@ -81,6 +81,7 @@ class UpdateViewController: UIViewController {
         let boldConfig = UIImage.SymbolConfiguration(weight: .bold)
         button.setImage(UIImage(systemName: "chevron.right", withConfiguration: boldConfig), for: .normal)
         //button.backgroundColor = .green
+        button.addTarget(self, action: #selector(showNewSurvey), for: .touchUpInside)
         return button
     }()
 
