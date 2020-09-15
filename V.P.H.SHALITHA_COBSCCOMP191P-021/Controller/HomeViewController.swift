@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 import FirebaseAuth
 import MapKit
 
@@ -202,7 +202,12 @@ class HomeViewController: UIViewController {
         tile.addSubview(countStack)
         countStack.anchor(top: timeAgo.bottomAnchor, left: tile.leftAnchor, bottom: tile.bottomAnchor, right: tile.rightAnchor)
         
-        
+        return tile
+    }()
+    
+    private let mapTile: UIView = {
+        let tile = UIView()
+        //tile.backgroundColor = .red
         return tile
     }()
     
@@ -210,7 +215,7 @@ class HomeViewController: UIViewController {
         didSet {
             locationInputUIView.user = user
             //if user?.accountType == .passenger {
-                //fetchDrivers()
+            fetchOtherUsers()
                 //configureLocationInputActivationView()
                 //observeCurrentTrip()
             //} else {
@@ -244,11 +249,47 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // MARK: - API
+    
+    func fetchUserData() {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Service.shared.fetchUserData(uid: currentUid) { (user) in
+            self.user = user
+        }
+    }
+    
+    func fetchOtherUsers() {
+        guard let location = locationManager?.location else { return }
+        Service.shared.fetchUsersLocation(location: location) { (driver) in
+            guard let coordinate = driver.location?.coordinate else { return }
+            let annotation = UserAnnotation(uid: driver.uid, coordinate: coordinate)
+            
+            var driverIsVisible: Bool {
+                
+                return self.mapView.annotations.contains { (annotation) -> Bool in
+                    guard let driverAnno = annotation as? UserAnnotation else { return false }
+                    
+                    if driverAnno.uid == driver.uid {
+                        driverAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                        return true
+                    }
+                    
+                    return false
+                }
+            }
+            
+            if !driverIsVisible {
+                self.mapView.addAnnotation(annotation)
+            }
+        }
+    }
+    
     // MARK: - Helper Function
     
     func configController() {
         configUI()
         fetchUserData()
+        fetchOtherUsers()
     }
     
     func configUI() {
@@ -260,7 +301,9 @@ class HomeViewController: UIViewController {
         notificTile.anchor(top: mainTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 16, paddingRight: 16, height: 80)
         view.addSubview(caseTile)
         caseTile.anchor(top: notificTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, height: 25 * view.bounds.height/100)
-        //configMapView()
+        view.addSubview(mapTile)
+        mapTile.anchor(top: caseTile.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        configMapView()
         //configureRideActionView()
         //view.addSubview(actionButton)
         //actionButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,
@@ -269,8 +312,10 @@ class HomeViewController: UIViewController {
     }
     
     func configMapView() {
-        view.addSubview(mapView)
-        mapView.frame = view.frame
+        mapTile.addSubview(mapView)
+        mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 220)
+        //mapView.frame = view.frame
+        print(mapView.bounds.height)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.delegate = self
@@ -293,13 +338,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func fetchUserData() {
-        guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        Service.shared.fetchUserData(uid: currentUid) { (user) in
-            self.user = user
-        }
-    }
-    
 }
 
 // MARK: - MKMapViewDelegate
@@ -308,7 +346,9 @@ extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? UserAnnotation {
             let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            view.image = #imageLiteral(resourceName: "chevron-sign-to-right")
+            view.image = UIImage(systemName: "mappin.circle.fill")
+            view.image?.withTintColor(.red)
+            //view.tintColor = .red
             return view
         }
         return nil
