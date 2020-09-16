@@ -84,6 +84,53 @@ class UpdateViewController: UIViewController {
         button.addTarget(self, action: #selector(showNewSurvey), for: .touchUpInside)
         return button
     }()
+    
+    private let temperatureTile: UIView = {
+        let tile = UIView()
+        tile.backgroundColor = .white
+        tile.layer.cornerRadius = 5
+        tile.layer.masksToBounds = true
+        
+        let tempLbl = UILabel()
+        tempLbl.text = "36.1"
+        tempLbl.font = UIFont.systemFont(ofSize: 46)
+        tile.addSubview(tempLbl)
+        tempLbl.anchor(top: tile.topAnchor, paddingTop: 40)
+        tempLbl.centerX(inView: tile)
+        
+        let timeAgo = UILabel()
+        timeAgo.text = "Last Update: 1 Day ago"
+        timeAgo.font = UIFont.systemFont(ofSize: 12)
+        timeAgo.textColor = .darkGray
+        tile.addSubview(timeAgo)
+        timeAgo.anchor(top: tempLbl.bottomAnchor, paddingTop: 20)
+        timeAgo.centerX(inView: tile)
+        
+        let tempInput = UITextField()
+        tempInput.borderStyle = .roundedRect
+        tempInput.layer.borderColor = UIColor.black.cgColor
+        tempInput.layer.borderWidth = 0.5
+        tempInput.layer.cornerRadius = 5.0
+        tempInput.layer.masksToBounds = true
+        tile.addSubview(tempInput)
+        tempInput.anchor(top: timeAgo.bottomAnchor, paddingTop: 40, width: 100)
+        tempInput.centerX(inView: tile)
+        
+        let tempBtn = UIButton()
+        tempBtn.setTitle("UPDATE", for: .normal)
+        tempBtn.setTitleColor(.black, for: .normal)
+        tempBtn.layer.borderColor = UIColor.black.cgColor
+        tempBtn.layer.borderWidth = 0.5
+        tempBtn.layer.cornerRadius = 5.0
+        tempBtn.layer.masksToBounds = true
+        tempBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        tempBtn.addTextSpacing(2)
+        tile.addSubview(tempBtn)
+        tempBtn.anchor(top: tempInput.bottomAnchor, paddingTop: 35, width: 120, height: 40)
+        tempBtn.centerX(inView: tile)
+        
+        return tile
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +168,9 @@ class UpdateViewController: UIViewController {
         view.addSubview(surveyTileButton)
         surveyTileButton.anchor(top: surveyTile.topAnchor, right: surveyTile.rightAnchor, width: 60)
         surveyTileButton.centerY(inView: surveyTile)
+        
+        view.addSubview(temperatureTile)
+        temperatureTile.anchor(top: surveyTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 16, paddingRight: 16, height: 300)
     }
     
     func configNavBar() {
