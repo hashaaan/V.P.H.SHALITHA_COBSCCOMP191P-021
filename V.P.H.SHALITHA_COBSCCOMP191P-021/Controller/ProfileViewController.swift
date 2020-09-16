@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
     // MARK: - Properties
     
     var safeArea: UILayoutGuide!
+    
+    var user: User? {
+        didSet { titleLbl.text = "\(user!.firstName) \(user!.lastName)" }
+    }
     
     private let backButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -25,7 +30,7 @@ class ProfileViewController: UIViewController {
     
     private let titleLbl: UILabel = {
         let label = UILabel()
-        label.text = "Hashan Shalitha"
+        label.text = "Update Profile"
         label.font = UIFont(name: "Avenir-Light", size: 26)
         label.textColor = .black
         return label
@@ -40,6 +45,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         safeArea = view.layoutMarginsGuide
+        fetchUserData()
         configUI()
     }
     
@@ -65,5 +71,15 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .default
     }
+    
+    // MARK: - API
+    
+    func fetchUserData() {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Service.shared.fetchUserData(uid: currentUid) { (user) in
+            self.user = user
+        }
+    }
+
 
 }

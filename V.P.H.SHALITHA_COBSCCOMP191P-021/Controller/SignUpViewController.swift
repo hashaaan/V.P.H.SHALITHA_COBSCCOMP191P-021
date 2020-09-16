@@ -209,7 +209,6 @@ class SignUpViewController: UIViewController {
         titleLbl.centerX(inView: view)
         
         view.addSubview(scrollView)
-        
         scrollView.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 1.0, paddingLeft: 1.0, paddingBottom: -1.0, paddingRight: -1.0)
         
         let stack = UIStackView(arrangedSubviews: [firstNameContainerView, lastNameContainerView, emailContainerView, roleContainerView, passwordContainerView, signupButton, termsAndConditionsButton])

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Firebase
 import FirebaseAuth
 import MapKit
 
@@ -24,6 +23,21 @@ class HomeViewController: UIViewController {
     private var route: MKRoute?
     var safeArea: UILayoutGuide!
     
+    private var user: User? {
+        didSet {
+            locationInputUIView.user = user
+            //ProfileViewController.user = user
+            //if user?.accountType == .passenger {
+            fetchOtherUsers()
+                //configureLocationInputActivationView()
+                //observeCurrentTrip()
+            //} else {
+                //observeTrips()
+            //}
+            
+        }
+    }
+    
     private let mainTile: UIView = {
         let tile = UIView()
         tile.backgroundColor = .white
@@ -31,20 +45,20 @@ class HomeViewController: UIViewController {
         let avatar = UIImageView()
         avatar.image = UIImage(named: "COVID19")
         tile.addSubview(avatar)
-        avatar.anchor(left: tile.leftAnchor, paddingLeft: 36, width: 125, height: 125)
+        avatar.anchor(left: tile.leftAnchor, paddingLeft: 30, width: 125, height: 125)
         avatar.centerY(inView: tile)
         
         let title = UILabel()
         title.text = "All you need is"
         title.font = UIFont(name: "Avenir-Medium", size: 26)
         tile.addSubview(title)
-        title.anchor(top: avatar.topAnchor, left: avatar.rightAnchor, paddingLeft: 34)
+        title.anchor(top: avatar.topAnchor, left: avatar.rightAnchor, right: tile.rightAnchor, paddingLeft: 30, paddingRight: 16)
         
         let subTitle = UILabel()
         subTitle.text = "stay at home"
         subTitle.font = UIFont(name: "Avenir-Black", size: 30)
         tile.addSubview(subTitle)
-        subTitle.anchor(top: title.bottomAnchor, left: avatar.rightAnchor, paddingLeft: 34)
+        subTitle.anchor(top: title.bottomAnchor, left: avatar.rightAnchor, right: tile.rightAnchor, paddingLeft: 30, paddingRight: 16)
         
         let safeActions = UIButton()
         let imgConfig = UIImage.SymbolConfiguration(pointSize: 0, weight: .medium, scale: .small)
@@ -55,9 +69,10 @@ class HomeViewController: UIViewController {
         safeActions.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         safeActions.semanticContentAttribute = .forceRightToLeft
         safeActions.sizeToFit()
+        safeActions.contentHorizontalAlignment = .left
         safeActions.addTarget(self, action: #selector(showSafeActions), for: .touchUpInside)
         tile.addSubview(safeActions)
-        safeActions.anchor(top: subTitle.bottomAnchor, left: avatar.rightAnchor, paddingTop: 15, paddingLeft: 34)
+        safeActions.anchor(top: subTitle.bottomAnchor, left: avatar.rightAnchor, right: tile.rightAnchor, paddingTop: 15, paddingLeft: 30, paddingRight: 16)
         
         return tile
     }()
@@ -152,21 +167,21 @@ class HomeViewController: UIViewController {
 
         let infectedCount = UILabel()
         infectedCount.text = "3"
-        infectedCount.font = UIFont(name: "Avenir-Medium", size: 52)
+        infectedCount.font = UIFont(name: "Avenir-Medium", size: 48)
         infectedUI.addSubview(infectedCount)
         infectedCount.anchor(top: yellowDot.bottomAnchor, paddingTop: 12)
         infectedCount.centerX(inView: infectedUI)
 
         let deathsCount = UILabel()
         deathsCount.text = "0"
-        deathsCount.font = UIFont(name: "Avenir-Medium", size: 52)
+        deathsCount.font = UIFont(name: "Avenir-Medium", size: 48)
         deathsUI.addSubview(deathsCount)
         deathsCount.anchor(top: redDot.bottomAnchor, paddingTop: 12)
         deathsCount.centerX(inView: deathsUI)
 
         let recoveredCount = UILabel()
         recoveredCount.text = "12"
-        recoveredCount.font = UIFont(name: "Avenir-Medium", size: 52)
+        recoveredCount.font = UIFont(name: "Avenir-Medium", size: 48)
         recoveredUI.addSubview(recoveredCount)
         recoveredCount.anchor(top: greenDot.bottomAnchor, paddingTop: 12)
         recoveredCount.centerX(inView: recoveredUI)
@@ -207,23 +222,18 @@ class HomeViewController: UIViewController {
     
     private let mapTile: UIView = {
         let tile = UIView()
-        //tile.backgroundColor = .red
+        tile.backgroundColor = .white
         return tile
     }()
     
-    private var user: User? {
-        didSet {
-            locationInputUIView.user = user
-            //if user?.accountType == .passenger {
-            fetchOtherUsers()
-                //configureLocationInputActivationView()
-                //observeCurrentTrip()
-            //} else {
-                //observeTrips()
-            //}
-            
-        }
-    }
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        let screensize: CGRect = UIScreen.main.bounds
+        sv.contentSize = CGSize(width: screensize.width - 2.0, height: 0.84 * screensize.height)
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        //sv.backgroundColor = .cyan
+        return sv
+    }()
     
     // MARK: - Lifecycle
 
@@ -293,16 +303,21 @@ class HomeViewController: UIViewController {
     }
     
     func configUI() {
+        
+        let screensize: CGRect = UIScreen.main.bounds
+        
         configNavBar()
         view.backgroundColor = .systemGray6
         view.addSubview(mainTile)
-        mainTile.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 30 * view.bounds.height/100)
-        view.addSubview(notificTile)
-        notificTile.anchor(top: mainTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 16, paddingRight: 16, height: 80)
-        view.addSubview(caseTile)
-        caseTile.anchor(top: notificTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, height: 25 * view.bounds.height/100)
-        view.addSubview(mapTile)
-        mapTile.anchor(top: caseTile.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        mainTile.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 0.26 * screensize.height)
+        view.addSubview(scrollView)
+        scrollView.anchor(top: mainTile.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 1.0, paddingLeft: 1.0, paddingBottom: -1.0, paddingRight: -1.0)
+        scrollView.addSubview(notificTile)
+        notificTile.anchor(top: scrollView.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 16, paddingRight: 16, height: 80)
+        scrollView.addSubview(caseTile)
+        caseTile.anchor(top: notificTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, height: 220)
+        scrollView.addSubview(mapTile)
+        mapTile.anchor(top: caseTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 270)
         configMapView()
         //configureRideActionView()
         //view.addSubview(actionButton)
@@ -313,9 +328,9 @@ class HomeViewController: UIViewController {
     
     func configMapView() {
         mapTile.addSubview(mapView)
-        mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 220)
+        mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 250)
         //mapView.frame = view.frame
-        print(mapView.bounds.height)
+        //print(mapView.bounds.height)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.delegate = self
@@ -346,9 +361,8 @@ extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? UserAnnotation {
             let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            view.image = UIImage(systemName: "mappin.circle.fill")
-            view.image?.withTintColor(.red)
-            //view.tintColor = .red
+            view.set(image: UIImage(systemName: "mappin.circle.fill")!, with: .orange)
+            
             return view
         }
         return nil
@@ -385,4 +399,19 @@ extension HomeViewController {
             break
         }
     }
+}
+
+extension MKAnnotationView {
+
+    public func set(image: UIImage, with color : UIColor) {
+        let view = UIImageView(image: image.withRenderingMode(.alwaysTemplate))
+        view.tintColor = color
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        guard let graphicsContext = UIGraphicsGetCurrentContext() else { return }
+        view.layer.render(in: graphicsContext)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.image = image
+    }
+    
 }
