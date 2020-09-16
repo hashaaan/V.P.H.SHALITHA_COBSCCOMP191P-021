@@ -36,6 +36,7 @@
 		D6FE0993250E3DED0040560E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE098F250E3DED0040560E /* Extensions.swift */; };
 		D6FE0995250E3DED0040560E /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0991250E3DED0040560E /* LocationHandler.swift */; };
 		D6FE0998250E407C0040560E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0997250E407C0040560E /* Service.swift */; };
+		D6FE099A2512A84B0040560E /* FullMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE09992512A84B0040560E /* FullMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		D6FE098F250E3DED0040560E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6FE0991250E3DED0040560E /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		D6FE0997250E407C0040560E /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		D6FE09992512A84B0040560E /* FullMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullMapViewController.swift; sourceTree = "<group>"; };
 		E6CBB71729505A03789FC72D /* Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig"; path = "Target Support Files/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC2BDEFC1724BC5D2EE8FEB1 /* Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig"; path = "Target Support Files/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 				D6FE0971250E3D320040560E /* SurveyCVCell.swift */,
 				D6FE0974250E3D330040560E /* SurveyViewController.swift */,
 				D6FE096F250E3D320040560E /* UpdateViewController.swift */,
+				D6FE09992512A84B0040560E /* FullMapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				D6FE0981250E3D330040560E /* SettingsViewController.swift in Sources */,
 				D6FE0988250E3D7E0040560E /* UserAnnotation.swift in Sources */,
 				D6FE0995250E3DED0040560E /* LocationHandler.swift in Sources */,
+				D6FE099A2512A84B0040560E /* FullMapViewController.swift in Sources */,
 				D6FE097B250E3D330040560E /* ContactViewController.swift in Sources */,
 				D6FE0976250E3D330040560E /* SignUpViewController.swift in Sources */,
 				D6FE0980250E3D330040560E /* SurveyCVCell.swift in Sources */,

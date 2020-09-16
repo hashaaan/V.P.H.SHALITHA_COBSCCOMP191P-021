@@ -15,6 +15,7 @@ struct User {
     let role: String
     var location: CLLocation?
     let uid: String
+    let temperature: String
     var result: Int?
     
     init(uid: String, dictionary: [String: Any]) {
@@ -23,5 +24,6 @@ struct User {
         self.lastName = dictionary["lastName"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.role = dictionary["role"] as? String ?? ""
+        self.temperature = dictionary["temperature"] as? String ?? "0"
     }
 }

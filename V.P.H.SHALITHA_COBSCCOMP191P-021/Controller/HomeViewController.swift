@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
 import MapKit
+import FirebaseAuth
 
 private let reuseIdentifier = "LocationCell"
 private let annotationIdentifier = "UserAnnotation"
@@ -131,6 +131,7 @@ class HomeViewController: UIViewController {
         moreBtn.setTitle("See More", for: .normal)
         moreBtn.setTitleColor(.systemBlue, for: .normal)
         moreBtn.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 14)
+        moreBtn.addTarget(self, action: #selector(showFullMap), for: .touchUpInside)
         tile.addSubview(moreBtn)
         moreBtn.anchor(top: tile.topAnchor, right: tile.rightAnchor, paddingTop: 14, paddingRight: 16)
         
@@ -254,6 +255,12 @@ class HomeViewController: UIViewController {
 //        let vc = SafeActionsViewController()
 //        vc.hidesBottomBarWhenPushed = true
 //        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func showFullMap() {
+        let vc = FullMapViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func showSafeActions() {

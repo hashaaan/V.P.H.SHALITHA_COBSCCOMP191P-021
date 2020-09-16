@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UpdateViewController: UIViewController {
     
     // MARK: - Properties
+    
+    private var user: User? {
+        didSet {
+            tempLbl.text = user!.temperature
+        }
+    }
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -97,15 +104,19 @@ class UpdateViewController: UIViewController {
         return tf
     }()
     
+    private let tempLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "0"
+        lbl.font = UIFont.systemFont(ofSize: 46)
+        return lbl
+    }()
+    
     private lazy var temperatureTile: UIView = {
         let tile = UIView()
         tile.backgroundColor = .white
         tile.layer.cornerRadius = 5
         tile.layer.masksToBounds = true
         
-        let tempLbl = UILabel()
-        tempLbl.text = "36.1"
-        tempLbl.font = UIFont.systemFont(ofSize: 46)
         tile.addSubview(tempLbl)
         tempLbl.anchor(top: tile.topAnchor, paddingTop: 40)
         tempLbl.centerX(inView: tile)
@@ -146,11 +157,54 @@ class UpdateViewController: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        self.fetchUserData()
     }
+    
+    // MARK: - Selectors
+    
+    @objc func showNotifications() {
+        let nav = UINavigationController(rootViewController: SafeActionsViewController())
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
+
+    }
+    
+    @objc func showNewSurvey() {
+        let vc = SurveyViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @objc func handleTempUpdate() {
+        guard let temp = tempTF.text else { return }
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        self.view.endEditing(true)
+        
+        let values = [
+            "temperature": temp
+        ] as [String : Any]
+        
+        self.uploadUserTemperature(uid: currentUid, values: values)
+        tempTF.text = ""
+    }
+    
+    // MARK: - API
+    
+    func fetchUserData() {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Service.shared.fetchUserData(uid: currentUid) { (user) in
+            self.user = user
+        }
+    }
+    
+    // MARK: - Helper Functions
     
     func configUI() {
         configNavBar()
@@ -197,32 +251,15 @@ class UpdateViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .default
     }
     
-    // MARK: - Selectors
-    
-    @objc func showNotifications() {
-        let nav = UINavigationController(rootViewController: SafeActionsViewController())
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true, completion: nil)
-
-    }
-    
-    @objc func showNewSurvey() {
-        let vc = SurveyViewController()
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: false)
-    }
-    
-    @objc func handleTempUpdate() {
-        guard let temp = tempTF.text else { return }
-        print("update\(temp)")
-        self.view.endEditing(true)
+    func uploadUserTemperature(uid: String, values: [String: Any]) {
+        REF_USERS.child(uid).updateChildValues(values) { (error, ref) in
+            //handle error
+            //print("user here! \(ref)")
+            if error == nil {
+                print("No error")
+                self.tempLbl.text = values.first?.value as? String
+            }
+        }
     }
     
 }
-
-//extension UpdateViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}
