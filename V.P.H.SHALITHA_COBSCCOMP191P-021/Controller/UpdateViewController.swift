@@ -85,7 +85,19 @@ class UpdateViewController: UIViewController {
         return button
     }()
     
-    private let temperatureTile: UIView = {
+    private let tempTF: UITextField = {
+        let tf = UITextField()
+        tf.borderStyle = .roundedRect
+        tf.layer.borderColor = UIColor.black.cgColor
+        tf.layer.borderWidth = 0.5
+        tf.layer.cornerRadius = 5.0
+        tf.layer.masksToBounds = true
+        tf.keyboardType = .decimalPad
+        tf.textAlignment = .center
+        return tf
+    }()
+    
+    private lazy var temperatureTile: UIView = {
         let tile = UIView()
         tile.backgroundColor = .white
         tile.layer.cornerRadius = 5
@@ -106,15 +118,9 @@ class UpdateViewController: UIViewController {
         timeAgo.anchor(top: tempLbl.bottomAnchor, paddingTop: 20)
         timeAgo.centerX(inView: tile)
         
-        let tempInput = UITextField()
-        tempInput.borderStyle = .roundedRect
-        tempInput.layer.borderColor = UIColor.black.cgColor
-        tempInput.layer.borderWidth = 0.5
-        tempInput.layer.cornerRadius = 5.0
-        tempInput.layer.masksToBounds = true
-        tile.addSubview(tempInput)
-        tempInput.anchor(top: timeAgo.bottomAnchor, paddingTop: 40, width: 100)
-        tempInput.centerX(inView: tile)
+        tile.addSubview(tempTF)
+        tempTF.anchor(top: timeAgo.bottomAnchor, paddingTop: 40, width: 100)
+        tempTF.centerX(inView: tile)
         
         let tempBtn = UIButton()
         tempBtn.setTitle("UPDATE", for: .normal)
@@ -125,11 +131,20 @@ class UpdateViewController: UIViewController {
         tempBtn.layer.masksToBounds = true
         tempBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         tempBtn.addTextSpacing(2)
+        tempBtn.addTarget(self, action: #selector(handleTempUpdate), for: .touchUpInside)
         tile.addSubview(tempBtn)
-        tempBtn.anchor(top: tempInput.bottomAnchor, paddingTop: 35, width: 120, height: 40)
+        tempBtn.anchor(top: tempTF.bottomAnchor, paddingTop: 35, width: 120, height: 40)
         tempBtn.centerX(inView: tile)
         
         return tile
+    }()
+    
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        let screensize: CGRect = UIScreen.main.bounds
+        sv.contentSize = CGSize(width: screensize.width - 2.0, height: screensize.height)
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
     }()
 
     override func viewDidLoad() {
@@ -145,31 +160,34 @@ class UpdateViewController: UIViewController {
         titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20)
         titleLabel.centerX(inView: view)
         
-        view.addSubview(notificationsTile)
-        notificationsTile.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16, height: 70)
+        view.addSubview(scrollView)
+        scrollView.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 1.0, paddingLeft: 1.0, paddingBottom: -1.0, paddingRight: -1.0)
         
-        view.addSubview(notificationsTileLabel)
+        scrollView.addSubview(notificationsTile)
+        notificationsTile.anchor(top: scrollView.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16, height: 70)
+        
+        scrollView.addSubview(notificationsTileLabel)
         notificationsTileLabel.anchor(top: notificationsTile.topAnchor, left: notificationsTile.leftAnchor, paddingLeft: 25)
         notificationsTileLabel.centerY(inView: notificationsTile)
         
-        view.addSubview(notificationsTileButton)
+        scrollView.addSubview(notificationsTileButton)
         notificationsTileButton.anchor(top: notificationsTile.topAnchor, right: notificationsTile.rightAnchor, width: 60)
         notificationsTileButton.centerY(inView: notificationsTile)
         
         // survey tile
         
-        view.addSubview(surveyTile)
+        scrollView.addSubview(surveyTile)
         surveyTile.anchor(top: notificationsTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 16, paddingRight: 16, height: 70)
 
-        view.addSubview(surveyTileLabel)
+        scrollView.addSubview(surveyTileLabel)
         surveyTileLabel.anchor(top: surveyTile.topAnchor, left: surveyTile.leftAnchor, paddingLeft: 25)
         surveyTileLabel.centerY(inView: surveyTile)
 
-        view.addSubview(surveyTileButton)
+        scrollView.addSubview(surveyTileButton)
         surveyTileButton.anchor(top: surveyTile.topAnchor, right: surveyTile.rightAnchor, width: 60)
         surveyTileButton.centerY(inView: surveyTile)
         
-        view.addSubview(temperatureTile)
+        scrollView.addSubview(temperatureTile)
         temperatureTile.anchor(top: surveyTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 16, paddingRight: 16, height: 300)
     }
     
@@ -189,12 +207,22 @@ class UpdateViewController: UIViewController {
     }
     
     @objc func showNewSurvey() {
-//        let nav = UINavigationController(rootViewController: SurveyViewController())
-//        nav.modalPresentationStyle = .fullScreen
-//        self.present(nav, animated: true, completion: nil)
         let vc = SurveyViewController()
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
+    @objc func handleTempUpdate() {
+        guard let temp = tempTF.text else { return }
+        print("update\(temp)")
+        self.view.endEditing(true)
+    }
+    
 }
+
+//extension UpdateViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}

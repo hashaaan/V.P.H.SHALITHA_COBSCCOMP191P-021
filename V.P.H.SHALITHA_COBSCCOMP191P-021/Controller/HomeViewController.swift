@@ -51,12 +51,14 @@ class HomeViewController: UIViewController {
         let title = UILabel()
         title.text = "All you need is"
         title.font = UIFont(name: "Avenir-Medium", size: 26)
+        title.adjustsFontSizeToFitWidth = true
         tile.addSubview(title)
         title.anchor(top: avatar.topAnchor, left: avatar.rightAnchor, right: tile.rightAnchor, paddingLeft: 30, paddingRight: 16)
         
         let subTitle = UILabel()
         subTitle.text = "stay at home"
         subTitle.font = UIFont(name: "Avenir-Black", size: 30)
+        subTitle.adjustsFontSizeToFitWidth = true
         tile.addSubview(subTitle)
         subTitle.anchor(top: title.bottomAnchor, left: avatar.rightAnchor, right: tile.rightAnchor, paddingLeft: 30, paddingRight: 16)
         
@@ -100,6 +102,7 @@ class HomeViewController: UIViewController {
         
         let title = UILabel()
         title.text = "NIBM is closed until further notice"
+        title.adjustsFontSizeToFitWidth = true
         tile.addSubview(title)
         title.anchor(top: tile.topAnchor,  left: bell.rightAnchor, right: arrow.leftAnchor, paddingTop: 15, paddingLeft: 12, paddingRight: 12)
         
