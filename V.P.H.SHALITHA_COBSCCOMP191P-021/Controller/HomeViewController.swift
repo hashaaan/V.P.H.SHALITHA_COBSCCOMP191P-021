@@ -299,6 +299,10 @@ class HomeViewController: UIViewController {
             
             if !usersVisible {
                 self.mapView.addAnnotation(annotation)
+                // check infected and alert
+            } else {
+                // check infected and alert
+                self.notifyUser()
             }
         }
     }
@@ -306,9 +310,9 @@ class HomeViewController: UIViewController {
     // MARK: - Helper Function
     
     func configController() {
-        configUI()
-        fetchUserData()
-        fetchOtherUsers()
+        self.configUI()
+        self.fetchUserData()
+        self.fetchOtherUsers()
     }
     
     func configUI() {
@@ -359,6 +363,12 @@ class HomeViewController: UIViewController {
         } else {
             configController()
         }
+    }
+    
+    func notifyUser() {
+        let alert = UIAlertController(title: "Warning!", message: "Possible COVID-19 infected person found near you", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
 }

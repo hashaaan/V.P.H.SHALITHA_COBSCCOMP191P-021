@@ -41,7 +41,7 @@ class SignInViewController: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-        return UITextField().textField(withPlaceholder: "Email", isSecureTextEntry: false)
+        return UITextField().textField(withPlaceholder: "Email", isSecureTextEntry: false, keyBoard: .emailAddress, caps: UITextAutocapitalizationType.none)
     }()
     
     private let passwordTextField: UITextField = {

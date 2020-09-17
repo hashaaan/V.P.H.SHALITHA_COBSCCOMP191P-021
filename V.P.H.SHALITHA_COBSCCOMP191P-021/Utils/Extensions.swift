@@ -105,7 +105,7 @@ extension UIView {
 }
 
 extension UITextField {
-    func textField(withPlaceholder placeholder: String, isSecureTextEntry: Bool) -> UITextField {
+    func textField(withPlaceholder placeholder: String, isSecureTextEntry: Bool, keyBoard: UIKeyboardType? = nil, caps: UITextAutocapitalizationType? = nil) -> UITextField {
         let tf = UITextField()
         tf.borderStyle = .roundedRect
         tf.layer.borderColor = UIColor.black.cgColor
@@ -117,7 +117,12 @@ extension UITextField {
         tf.keyboardAppearance = .default
         tf.isSecureTextEntry = isSecureTextEntry
         tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
-        
+        if let keyBoard = keyBoard {
+            tf.keyboardType = keyBoard
+        }
+        if let caps = caps {
+            tf.autocapitalizationType = caps
+        }
         return tf
     }
 }
