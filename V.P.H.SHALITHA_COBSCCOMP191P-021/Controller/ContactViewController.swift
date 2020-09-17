@@ -26,6 +26,7 @@ class ContactViewController: UIViewController {
     private let titleLbl: UILabel = {
         let label = UILabel()
         label.text = "Contact Us / About Us"
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont(name: "Avenir-Light", size: 26)
         label.textColor = .black
         return label

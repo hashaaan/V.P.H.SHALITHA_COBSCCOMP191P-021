@@ -115,10 +115,10 @@ class FullMapViewController: UIViewController {
     func configMapView() {
         mapTile.addSubview(mapView)
         mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height * 0.9)
-        print(topNav.bounds.height)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.delegate = self
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(UserAnnotation.self))
     }
     
     func configNavBar() {
@@ -133,9 +133,13 @@ class FullMapViewController: UIViewController {
 extension FullMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? UserAnnotation {
-            let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            view.set(image: UIImage(systemName: "mappin.circle.fill")!, with: .orange)
-            
+            let identifier = NSStringFromClass(UserAnnotation.self)
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier, for: annotation)
+            if let markerAnnotationView = view as? MKMarkerAnnotationView {
+                markerAnnotationView.animatesWhenAdded = true
+                markerAnnotationView.canShowCallout = false
+                markerAnnotationView.markerTintColor = .red
+            }
             return view
         }
         return nil

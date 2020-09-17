@@ -251,10 +251,9 @@ class HomeViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func showNotific() {
-        print("notific")
-//        let vc = SafeActionsViewController()
-//        vc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = NotificationsVC()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func showFullMap() {
@@ -339,11 +338,10 @@ class HomeViewController: UIViewController {
     func configMapView() {
         mapTile.addSubview(mapView)
         mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 250)
-        //mapView.frame = view.frame
-        //print(mapView.bounds.height)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.delegate = self
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: NSStringFromClass(UserAnnotation.self))
     }
     
     func configNavBar() {
@@ -370,23 +368,16 @@ class HomeViewController: UIViewController {
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? UserAnnotation {
-            let view = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            view.set(image: UIImage(systemName: "mappin.circle.fill")!, with: .orange)
-            
+            let identifier = NSStringFromClass(UserAnnotation.self)
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier, for: annotation)
+            if let markerAnnotationView = view as? MKMarkerAnnotationView {
+                markerAnnotationView.animatesWhenAdded = true
+                markerAnnotationView.canShowCallout = false
+                markerAnnotationView.markerTintColor = .red
+            }
             return view
         }
         return nil
-    }
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if let route = self.route {
-            let polyline = route.polyline
-            let lineRenderer = MKPolylineRenderer(overlay: polyline)
-            lineRenderer.strokeColor = .mainBlueTint
-            lineRenderer.lineWidth = 4
-            return lineRenderer
-        }
-        return MKOverlayRenderer()
     }
 }
 

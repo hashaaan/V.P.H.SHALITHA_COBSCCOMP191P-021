@@ -37,6 +37,10 @@
 		D6FE0995250E3DED0040560E /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0991250E3DED0040560E /* LocationHandler.swift */; };
 		D6FE0998250E407C0040560E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE0997250E407C0040560E /* Service.swift */; };
 		D6FE099A2512A84B0040560E /* FullMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE09992512A84B0040560E /* FullMapViewController.swift */; };
+		D6FE09A225137AA80040560E /* CreateNotificVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE09A125137AA80040560E /* CreateNotificVC.swift */; };
+		D6FE09A425138F840040560E /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE09A325138F840040560E /* Contact.swift */; };
+		D6FE09A82513989D0040560E /* ContactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE09A72513989D0040560E /* ContactAPI.swift */; };
+		D6FE09AA25139CEC0040560E /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FE09A925139CEC0040560E /* NotificationsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		D6FE0991250E3DED0040560E /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		D6FE0997250E407C0040560E /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		D6FE09992512A84B0040560E /* FullMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullMapViewController.swift; sourceTree = "<group>"; };
+		D6FE09A125137AA80040560E /* CreateNotificVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificVC.swift; sourceTree = "<group>"; };
+		D6FE09A325138F840040560E /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		D6FE09A72513989D0040560E /* ContactAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAPI.swift; sourceTree = "<group>"; };
+		D6FE09A925139CEC0040560E /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		E6CBB71729505A03789FC72D /* Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig"; path = "Target Support Files/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021-V.P.H.SHALITHA_COBSCCOMP191P-021UITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC2BDEFC1724BC5D2EE8FEB1 /* Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig"; path = "Target Support Files/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021/Pods-V.P.H.SHALITHA_COBSCCOMP191P-021.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +234,8 @@
 				D6FE0974250E3D330040560E /* SurveyViewController.swift */,
 				D6FE096F250E3D320040560E /* UpdateViewController.swift */,
 				D6FE09992512A84B0040560E /* FullMapViewController.swift */,
+				D6FE09A125137AA80040560E /* CreateNotificVC.swift */,
+				D6FE09A925139CEC0040560E /* NotificationsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,6 +263,8 @@
 			children = (
 				D6FE098F250E3DED0040560E /* Extensions.swift */,
 				D6FE0991250E3DED0040560E /* LocationHandler.swift */,
+				D6FE09A325138F840040560E /* Contact.swift */,
+				D6FE09A72513989D0040560E /* ContactAPI.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -509,17 +521,21 @@
 				D6FE0998250E407C0040560E /* Service.swift in Sources */,
 				D6F6F8FC250E0EBD00C3584E /* AppDelegate.swift in Sources */,
 				D6FE0979250E3D330040560E /* SafeActionsViewController.swift in Sources */,
+				D6FE09A225137AA80040560E /* CreateNotificVC.swift in Sources */,
 				D6FE0978250E3D330040560E /* SignInViewController.swift in Sources */,
+				D6FE09AA25139CEC0040560E /* NotificationsVC.swift in Sources */,
 				D6FE097A250E3D330040560E /* AuthViewController.swift in Sources */,
 				D6FE097C250E3D330040560E /* HomeViewController.swift in Sources */,
 				D6FE0983250E3D330040560E /* SurveyViewController.swift in Sources */,
 				D6FE097D250E3D330040560E /* ProfileViewController.swift in Sources */,
 				D6FE097F250E3D330040560E /* MainTabBarController.swift in Sources */,
+				D6FE09A425138F840040560E /* Contact.swift in Sources */,
 				D6FE0981250E3D330040560E /* SettingsViewController.swift in Sources */,
 				D6FE0988250E3D7E0040560E /* UserAnnotation.swift in Sources */,
 				D6FE0995250E3DED0040560E /* LocationHandler.swift in Sources */,
 				D6FE099A2512A84B0040560E /* FullMapViewController.swift in Sources */,
 				D6FE097B250E3D330040560E /* ContactViewController.swift in Sources */,
+				D6FE09A82513989D0040560E /* ContactAPI.swift in Sources */,
 				D6FE0976250E3D330040560E /* SignUpViewController.swift in Sources */,
 				D6FE0980250E3D330040560E /* SurveyCVCell.swift in Sources */,
 				D6FE0987250E3D7E0040560E /* User.swift in Sources */,

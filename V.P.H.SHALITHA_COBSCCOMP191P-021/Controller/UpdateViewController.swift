@@ -15,7 +15,7 @@ class UpdateViewController: UIViewController {
     
     private var user: User? {
         didSet {
-            tempLbl.text = user!.temperature
+            tempLbl.text = "\(user!.temperature)°C"
         }
     }
     
@@ -156,12 +156,9 @@ class UpdateViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func showNotifications() {
-        print(user?.role ?? "")
-//        let nav = UINavigationController(rootViewController: SafeActionsViewController())
-//        nav.modalPresentationStyle = .fullScreen
-//        self.present(nav, animated: true, completion: nil)
-//        setView(view: notificTile, hidden: true)
-
+        let vc = CreateNotificVC()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func showNewSurvey() {
@@ -243,7 +240,7 @@ class UpdateViewController: UIViewController {
             if error == nil {
                 print("No error")
                 //self.tempLbl.text = values.first?.value as? String
-                self.tempLbl.text = "\(values["temperature"] as? String ?? "37"))°C"
+                self.tempLbl.text = "\(values["temperature"] as? String ?? "37")°C"
             }
         }
     }
