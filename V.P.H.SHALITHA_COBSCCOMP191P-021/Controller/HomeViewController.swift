@@ -280,17 +280,17 @@ class HomeViewController: UIViewController {
     
     func fetchOtherUsers() {
         guard let location = locationManager?.location else { return }
-        Service.shared.fetchUsersLocation(location: location) { (driver) in
-            guard let coordinate = driver.location?.coordinate else { return }
-            let annotation = UserAnnotation(uid: driver.uid, coordinate: coordinate)
+        Service.shared.fetchUsersLocation(location: location) { (user) in
+            guard let coordinate = user.location?.coordinate else { return }
+            let annotation = UserAnnotation(uid: user.uid, coordinate: coordinate)
             
-            var driverIsVisible: Bool {
+            var usersVisible: Bool {
                 
                 return self.mapView.annotations.contains { (annotation) -> Bool in
-                    guard let driverAnno = annotation as? UserAnnotation else { return false }
+                    guard let userAnno = annotation as? UserAnnotation else { return false }
                     
-                    if driverAnno.uid == driver.uid {
-                        driverAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                    if userAnno.uid == user.uid {
+                        userAnno.updateAnnotationPosition(withCoordinate: coordinate)
                         return true
                     }
                     
@@ -298,7 +298,7 @@ class HomeViewController: UIViewController {
                 }
             }
             
-            if !driverIsVisible {
+            if !usersVisible {
                 self.mapView.addAnnotation(annotation)
             }
         }

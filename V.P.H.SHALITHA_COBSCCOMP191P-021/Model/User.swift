@@ -24,6 +24,6 @@ struct User {
         self.lastName = dictionary["lastName"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.role = dictionary["role"] as? String ?? ""
-        self.temperature = dictionary["temperature"] as? String ?? "0"
+        self.temperature = dictionary["temperature"] as? String ?? "37°C"
     }
 }
