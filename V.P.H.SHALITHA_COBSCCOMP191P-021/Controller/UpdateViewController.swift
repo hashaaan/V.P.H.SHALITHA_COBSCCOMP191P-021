@@ -179,18 +179,20 @@ class UpdateViewController: UIViewController {
             let alert = UIAlertController(title: "Temprature is Required!", message: "Please enter your body temprature", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
+            return
         } else if (temperature! < 34.0) || (temperature! > 47.0)  {
             let alert = UIAlertController(title: "Invalid Temprature!", message: "Body temprature cannot be lessthan 34°C or greaterthan 47°C", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
-        } else {
-            self.view.endEditing(true)
-            let values = [
-                "temperature": temp
-            ] as [String : Any]
-            self.uploadUserTemperature(uid: currentUid, values: values)
-            self.tempTF.text = ""
+            return
         }
+        
+        self.view.endEditing(true)
+        let values = [
+            "temperature": temp
+        ] as [String : Any]
+        self.uploadUserTemperature(uid: currentUid, values: values)
+        self.tempTF.text = ""
     }
     
     // MARK: - API

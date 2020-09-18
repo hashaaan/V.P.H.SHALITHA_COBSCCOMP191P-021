@@ -120,23 +120,25 @@ class CreateNotificVC: UIViewController {
             let alert = UIAlertController(title: "Title is Required!", message: "Please enter notification title", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
+            return
         } else if description.isEmpty  {
             let alert = UIAlertController(title: "Description is Required!", message: "Please enter notification title", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
-        } else {
-            self.view.endEditing(true)
-            
-            let values = [
-                "title": title,
-                "description": description,
-                "date": [".sv": "timestamp"]
-            ] as [String : Any]
-            
-            self.uploadNotificationData(uid: currentUid, values: values)
-            self.titleTF.text = ""
-            self.descriptionTF.text = ""
+            return
         }
+        
+        self.view.endEditing(true)
+        
+        let values = [
+            "title": title,
+            "description": description,
+            "date": [".sv": "timestamp"]
+        ] as [String : Any]
+        
+        self.uploadNotificationData(uid: currentUid, values: values)
+        self.titleTF.text = ""
+        self.descriptionTF.text = ""
         
     }
     
@@ -159,11 +161,16 @@ class CreateNotificVC: UIViewController {
     func uploadNotificationData(uid: String, values: [String: Any]) {
         
         REF_NOTIFICATIONS.childByAutoId().setValue(values) { (error, ref) in
-            if error == nil {
-                let alert = UIAlertController(title: "Success!", message: "Notification created successfully", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alert, animated: true)
+                
+            if let error = error {
+                print("Faild to create notification \(error)")
+                return
             }
+            
+            let alert = UIAlertController(title: "Success!", message: "Notification created successfully", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
         }
         
     }

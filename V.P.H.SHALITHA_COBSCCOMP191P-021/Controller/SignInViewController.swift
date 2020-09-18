@@ -73,12 +73,30 @@ class SignInViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func handleSignIn() {
-       guard let email = emailTextField.text else { return }
-       guard let password = passwordTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        // Signin Validations
+        if email.isEmpty  {
+            let alert = UIAlertController(title: "Email is Required!", message: "Please enter your email address", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if password.isEmpty  {
+            let alert = UIAlertController(title: "Password is Required!", message: "Please enter your password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if password.count < 6  {
+            let alert = UIAlertController(title: "Invalid Password!", message: "Password must be at least 6 charactors", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        }
        
-       Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
            if let error = error {
-               print("DEBUG: Faild to log user with error \(error.localizedDescription)")
+               print("DEBUG: Faild to log user \(error.localizedDescription)")
                return
            }
            

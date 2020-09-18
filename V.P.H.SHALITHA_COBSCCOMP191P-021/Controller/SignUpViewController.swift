@@ -136,6 +136,39 @@ class SignUpViewController: UIViewController {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
+        // Signup Validations
+        if firstName.isEmpty {
+            let alert = UIAlertController(title: "First Name is Required!", message: "Please enter your first name", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if lastName.isEmpty  {
+            let alert = UIAlertController(title: "Last Name is Required!", message: "Please enter your last name", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if role.isEmpty  {
+            let alert = UIAlertController(title: "Role is Required!", message: "Please enter your role (Admin/User)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if email.isEmpty  {
+            let alert = UIAlertController(title: "Email is Required!", message: "Please enter your email address", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if password.isEmpty  {
+            let alert = UIAlertController(title: "Password is Required!", message: "Please enter your password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        } else if password.count < 6  {
+            let alert = UIAlertController(title: "Invalid Password!", message: "Password must be at least 6 charactors", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("Faild to signup user with error \(error)")
