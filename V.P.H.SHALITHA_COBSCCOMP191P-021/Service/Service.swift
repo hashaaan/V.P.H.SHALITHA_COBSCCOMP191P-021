@@ -44,9 +44,11 @@ struct Service {
         }
     }
     
-    func fetchNotifications(uid: String, completion: @escaping(User) -> Void) {
-        REF_NOTIFICATIONS.observe(.value) { (snapshot) in
-            print(snapshot.key)
+    func fetchNotifications(completion: @escaping(Notific) -> Void) {
+        REF_NOTIFICATIONS.observe(.childAdded) { (snapshot) in
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            let notific = Notific(id: snapshot.key, dictionary: dictionary)
+            completion(notific)
         }
     }
 }

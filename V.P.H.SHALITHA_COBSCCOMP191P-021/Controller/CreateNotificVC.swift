@@ -159,7 +159,6 @@ class CreateNotificVC: UIViewController {
     }
     
     func uploadNotificationData(uid: String, values: [String: Any]) {
-        
         REF_NOTIFICATIONS.childByAutoId().setValue(values) { (error, ref) in
                 
             if let error = error {
@@ -172,7 +171,6 @@ class CreateNotificVC: UIViewController {
             self.present(alert, animated: true)
             
         }
-        
     }
 
 }
