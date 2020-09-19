@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
     
     private var user: User? {
         didSet {
-            //fetchOtherUsers()
+            fetchOtherUsers()
         }
     }
     

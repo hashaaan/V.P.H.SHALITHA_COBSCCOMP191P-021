@@ -102,6 +102,7 @@ class CreateNotificVC: UIViewController {
         super.viewDidLoad()
         safeArea = view.layoutMarginsGuide
         self.configUI()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Selectors

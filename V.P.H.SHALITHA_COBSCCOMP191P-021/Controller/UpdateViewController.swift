@@ -151,6 +151,7 @@ class UpdateViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         self.fetchUserData()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Selectors
