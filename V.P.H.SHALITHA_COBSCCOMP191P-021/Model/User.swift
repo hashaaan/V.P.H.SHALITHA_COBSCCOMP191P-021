@@ -17,6 +17,8 @@ struct User {
     let uid: String
     let temperature: String
     var surveyResult: Int
+    let index: String
+    let country: String
     
     init(uid: String, dictionary: [String: Any]) {
         self.uid = uid
@@ -26,5 +28,7 @@ struct User {
         self.role = dictionary["role"] as? String ?? ""
         self.temperature = dictionary["temperature"] as? String ?? "0"
         self.surveyResult = dictionary["surveyResult"] as? Int ?? 0
+        self.index = dictionary["index"] as? String ?? ""
+        self.country = dictionary["country"] as? String ?? ""
     }
 }

@@ -90,7 +90,6 @@ class CreateNotificVC: UIViewController {
         stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.spacing = 30
-
         tile.addSubview(stack)
         stack.anchor(top: tile.topAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
         

@@ -344,7 +344,6 @@ class HomeViewController: UIViewController {
     }
     
     func configUI() {
-        
         configNavBar()
         view.backgroundColor = .systemGray6
         view.addSubview(scrollView)
