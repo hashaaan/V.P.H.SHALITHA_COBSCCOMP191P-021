@@ -93,7 +93,7 @@ class UpdateViewController: UIViewController {
     
     private let tempLbl: UILabel = {
         let lbl = UILabel()
-        lbl.text = "37°C"
+        lbl.text = "0°C"
         lbl.font = UIFont.systemFont(ofSize: 46)
         return lbl
     }()
@@ -162,9 +162,9 @@ class UpdateViewController: UIViewController {
     }
     
     @objc func showNewSurvey() {
-        let vc = SurveyViewController()
+        let vc = SurveyVC01()
         vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func handleTempUpdate() {
@@ -189,7 +189,8 @@ class UpdateViewController: UIViewController {
         
         self.view.endEditing(true)
         let values = [
-            "temperature": temp
+            "temperature": temp,
+            "tempDate": [".sv": "timestamp"]
         ] as [String : Any]
         self.uploadUserTemperature(uid: currentUid, values: values)
         self.tempTF.text = ""
@@ -242,7 +243,7 @@ class UpdateViewController: UIViewController {
             if error == nil {
                 print("No error")
                 //self.tempLbl.text = values.first?.value as? String
-                self.tempLbl.text = "\(values["temperature"] as? String ?? "37")°C"
+                self.tempLbl.text = "\(values["temperature"] as? String ?? "0")°C"
             }
         }
     }

@@ -27,12 +27,35 @@ class SafeActionsViewController: UIViewController {
         return label
     }()
     
-    //let scrollView = UIScrollView()
+    private let topNav: UIView = {
+        let uv = UIView()
+        uv.backgroundColor = .systemGray6
+        
+        let backBtn = UIButton()
+        let boldConfig = UIImage.SymbolConfiguration(pointSize: .zero, weight: .bold, scale: .large)
+        backBtn.setImage(UIImage(systemName: "chevron.left", withConfiguration: boldConfig), for: .normal)
+        backBtn.tintColor = .black
+        backBtn.addTarget(self, action: #selector(handleGoBack), for: .touchUpInside)
+        uv.addSubview(backBtn)
+        backBtn.anchor(left: uv.leftAnchor, paddingLeft: 16, width: 38, height: 38)
+        backBtn.centerY(inView: uv)
+        
+        let titleLbl = UILabel()
+        titleLbl.text = "Safe Actions"
+        titleLbl.font = UIFont(name: "Avenir-Light", size: 26)
+        titleLbl.textColor = .black
+        titleLbl.adjustsFontSizeToFitWidth = true
+        uv.addSubview(titleLbl)
+        titleLbl.centerY(inView: uv)
+        titleLbl.centerX(inView: uv)
+        
+        return uv
+    }()
     
     let scrollView: UIScrollView = {
         let sv = UIScrollView()
         let screensize: CGRect = UIScreen.main.bounds
-        sv.contentSize = CGSize(width: screensize.width - 2.0, height: screensize.height + 2.0)
+        sv.contentSize = CGSize(width: screensize.width - 2.0, height: screensize.height - 70)
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.backgroundColor = .white
         return sv
@@ -52,15 +75,11 @@ class SafeActionsViewController: UIViewController {
         let titles = ["Wash Your Hands", "Location", "All Set"]
         
         view.backgroundColor = .systemGray6
-        view.addSubview(backButton)
-        backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 16, paddingBottom: 20, width: 40, height: 40)
-        view.addSubview(titleLbl)
-        titleLbl.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 20, paddingBottom: 20)
-        titleLbl.centerX(inView: view)
+        view.addSubview(topNav)
+        topNav.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 70)
         
-        //scrollView.frame = screensize
         view.addSubview(scrollView)
-        scrollView.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        scrollView.anchor(top: topNav.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         
         for x in 0..<3 {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * screensize.width, y: 0, width: screensize.width, height: screensize.height-titleLbl.frame.size.height))

@@ -79,14 +79,19 @@ class FullMapViewController: UIViewController {
             guard let coordinate = user.location?.coordinate else { return }
             let annotation = UserAnnotation(uid: user.uid, coordinate: coordinate)
             
+            let temp = Float(user.temperature)!
+            let result = user.surveyResult
+            
             var usersVisible: Bool {
                 
                 return self.mapView.annotations.contains { (annotation) -> Bool in
                     guard let userAnno = annotation as? UserAnnotation else { return false }
                     
                     if userAnno.uid == user.uid {
-                        userAnno.updateAnnotationPosition(withCoordinate: coordinate)
-                        return true
+                        if temp >= 38.0 && result >= 3 {
+                            userAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                            return true
+                        }
                     }
                     
                     return false
@@ -94,7 +99,9 @@ class FullMapViewController: UIViewController {
             }
             
             if !usersVisible {
-                self.mapView.addAnnotation(annotation)
+                if temp >= 38.0 && result >= 3 {
+                    self.mapView.addAnnotation(annotation)
+                }
             }
         }
     }
@@ -106,7 +113,7 @@ class FullMapViewController: UIViewController {
         view.backgroundColor = .systemGray6
         configNavBar()
         view.addSubview(topNav)
-        topNav.anchor(top: safeArea.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: view.bounds.height * 0.1)
+        topNav.anchor(top: safeArea.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 70)
         view.addSubview(mapTile)
         mapTile.anchor(top: topNav.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         configMapView()
@@ -114,7 +121,7 @@ class FullMapViewController: UIViewController {
     
     func configMapView() {
         mapTile.addSubview(mapView)
-        mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height * 0.9)
+        mapView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - 70)
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.delegate = self

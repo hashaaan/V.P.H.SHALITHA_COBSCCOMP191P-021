@@ -18,23 +18,13 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     
     private let mapView = MKMapView()
-    private let locationInputUIView = LocationInputUIView()
     private let locationManager = LocationHandler.shared.locationManager
     private var route: MKRoute?
     var safeArea: UILayoutGuide!
     
     private var user: User? {
         didSet {
-            locationInputUIView.user = user
-            //ProfileViewController.user = user
-            //if user?.accountType == .passenger {
-            fetchOtherUsers()
-                //configureLocationInputActivationView()
-                //observeCurrentTrip()
-            //} else {
-                //observeTrips()
-            //}
-            
+            //fetchOtherUsers()
         }
     }
     
@@ -233,7 +223,7 @@ class HomeViewController: UIViewController {
     let scrollView: UIScrollView = {
         let sv = UIScrollView()
         let screensize: CGRect = UIScreen.main.bounds
-        sv.contentSize = CGSize(width: screensize.width - 2.0, height: 0.84 * screensize.height)
+        sv.contentSize = CGSize(width: screensize.width, height: 770)
         sv.translatesAutoresizingMaskIntoConstraints = false
         //sv.backgroundColor = .cyan
         return sv
@@ -246,6 +236,10 @@ class HomeViewController: UIViewController {
         safeArea = view.layoutMarginsGuide
         checkUserAuthenticated()
         enableLocationServices()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.fetchOtherUsers()
     }
     
     // MARK: - Selectors
@@ -279,9 +273,13 @@ class HomeViewController: UIViewController {
     
     func fetchOtherUsers() {
         guard let location = locationManager?.location else { return }
+        
         Service.shared.fetchUsersLocation(location: location) { (user) in
             guard let coordinate = user.location?.coordinate else { return }
             let annotation = UserAnnotation(uid: user.uid, coordinate: coordinate)
+            
+            let temp = Float(user.temperature)!
+            let result = user.surveyResult
             
             var usersVisible: Bool {
                 
@@ -289,8 +287,11 @@ class HomeViewController: UIViewController {
                     guard let userAnno = annotation as? UserAnnotation else { return false }
                     
                     if userAnno.uid == user.uid {
-                        userAnno.updateAnnotationPosition(withCoordinate: coordinate)
-                        return true
+                        if temp >= 38.0 && result >= 3 {
+                            userAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                            self.notifyUser()
+                            return true
+                        }
                     }
                     
                     return false
@@ -298,13 +299,13 @@ class HomeViewController: UIViewController {
             }
             
             if !usersVisible {
-                self.mapView.addAnnotation(annotation)
-                // check infected and alert
-            } else {
-                // check infected and alert
-                self.notifyUser()
+                if temp >= 38.0 && result >= 3 {
+                    self.mapView.addAnnotation(annotation)
+                    self.notifyUser()
+                }
             }
         }
+        
     }
     
     // MARK: - Helper Function
@@ -317,26 +318,19 @@ class HomeViewController: UIViewController {
     
     func configUI() {
         
-        let screensize: CGRect = UIScreen.main.bounds
-        
         configNavBar()
         view.backgroundColor = .systemGray6
-        view.addSubview(mainTile)
-        mainTile.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 0.26 * screensize.height)
         view.addSubview(scrollView)
-        scrollView.anchor(top: mainTile.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 1.0, paddingLeft: 1.0, paddingBottom: -1.0, paddingRight: -1.0)
+        scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        scrollView.addSubview(mainTile)
+        mainTile.anchor(top: scrollView.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 200)
         scrollView.addSubview(notificTile)
-        notificTile.anchor(top: scrollView.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 16, paddingRight: 16, height: 80)
+        notificTile.anchor(top: mainTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 16, paddingRight: 16, height: 80)
         scrollView.addSubview(caseTile)
         caseTile.anchor(top: notificTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, height: 220)
         scrollView.addSubview(mapTile)
-        mapTile.anchor(top: caseTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 270)
+        mapTile.anchor(top: caseTile.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, width: view.bounds.width, height: 270)
         configMapView()
-        //configureRideActionView()
-        //view.addSubview(actionButton)
-        //actionButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,
-        //                    paddingTop: 16, paddingLeft: 20, width: 30, height: 30)
-        //configureTableView()
     }
     
     func configMapView() {
@@ -366,9 +360,11 @@ class HomeViewController: UIViewController {
     }
     
     func notifyUser() {
-        let alert = UIAlertController(title: "Warning!", message: "Possible COVID-19 infected person found near you", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
+        if !UIApplication.topViewController()!.isKind(of: UIAlertController.self) {
+            let alert = UIAlertController(title: "Warning!", message: "Possible COVID-19 infected person found near you", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
     
 }
@@ -423,6 +419,27 @@ extension MKAnnotationView {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.image = image
+    }
+    
+}
+
+extension UIApplication {
+    
+    // To check if UIAlertController presented
+
+    public class func topViewController(_ base: UIViewController? = UIApplication.shared.windows.first?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(presented)
+        }
+        return base
     }
     
 }

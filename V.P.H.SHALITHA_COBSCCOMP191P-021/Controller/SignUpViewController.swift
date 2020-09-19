@@ -171,7 +171,7 @@ class SignUpViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
-                print("Faild to signup user with error \(error)")
+                print("Faild to signup user : \(error)")
                 return
             }
             

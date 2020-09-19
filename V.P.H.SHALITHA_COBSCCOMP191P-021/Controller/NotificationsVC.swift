@@ -81,7 +81,7 @@ class NotificationsVC: UIViewController, UITableViewDataSource {
         view.backgroundColor = .systemGray6
         configNavBar()
         view.addSubview(topNav)
-        topNav.anchor(top: safeArea.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: view.bounds.height * 0.1)
+        topNav.anchor(top: safeArea.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 70)
         view.addSubview(contactsTableView)
         contactsTableView.translatesAutoresizingMaskIntoConstraints = false
         contactsTableView.topAnchor.constraint(equalTo: topNav.bottomAnchor).isActive = true
