@@ -168,7 +168,6 @@ class CreateNotificVC: UIViewController {
             let alert = UIAlertController(title: "Success!", message: "Notification created successfully", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
-            
         }
     }
 

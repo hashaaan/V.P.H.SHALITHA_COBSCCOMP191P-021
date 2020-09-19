@@ -316,23 +316,21 @@ class HomeViewController: UIViewController {
     }
     
     func updateUserLocation() {
-        
         guard let location = locationManager?.location else { return }
-
-        //location.isEmpty {
-
-        let uid = (Auth.auth().currentUser?.uid)!
-        let geoFire = GeoFire(firebaseRef: REF_USER_LOCATIONS)
-            
-        geoFire.setLocation(location, forKey: uid) { (error) in
-            if (error != nil) {
-                print("An error occured: \(error!)")
-            } else {
-                print("Saved location successfully!")
+        let receivedLocation : CLLocation! = nil
+        
+        if !(Auth.auth().currentUser?.uid == nil) && (receivedLocation != nil) {
+            let uid = (Auth.auth().currentUser?.uid)!
+            let geoFire = GeoFire(firebaseRef: REF_USER_LOCATIONS)
+                
+            geoFire.setLocation(location, forKey: uid) { (error) in
+                if (error != nil) {
+                    print("An error occured: \(error!)")
+                } else {
+                    print("Saved location successfully!")
+                }
             }
         }
-
-        //}
     }
     
     // MARK: - Helper Function

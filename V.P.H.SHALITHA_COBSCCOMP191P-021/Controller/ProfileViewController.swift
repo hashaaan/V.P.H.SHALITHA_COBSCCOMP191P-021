@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
             lastNameTF.text = user!.lastName
             indexTF.text = user!.index
             countryTF.text = user!.country
+            tempLbl.text = "\(user!.temperature)°C"
         }
     }
     
@@ -44,7 +45,7 @@ class ProfileViewController: UIViewController {
     
     private let avatar: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "COVID19")
+        image.image = UIImage(named: "avatar")
         image.layer.cornerRadius = 50;
         image.layer.masksToBounds = true
         image.clipsToBounds = true
@@ -63,7 +64,7 @@ class ProfileViewController: UIViewController {
     
     private let tempLbl: UILabel = {
         let label = UILabel()
-        label.text = "37°C"
+        label.text = "0°C"
         label.textColor = .black
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 24)
@@ -137,28 +138,17 @@ class ProfileViewController: UIViewController {
         return button
     }()
     
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        let screensize: CGRect = UIScreen.main.bounds
+        sv.contentSize = CGSize(width: screensize.width, height: screensize.height)
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
     private lazy var mainTile: UIView = {
         let tile = UIView()
         tile.backgroundColor = .white
-        
-        tile.addSubview(avatar)
-        avatar.anchor(top: tile.topAnchor, paddingTop: 30, width: 100, height: 100)
-        avatar.centerX(inView: tile)
-        
-        tile.addSubview(bioLbl)
-        bioLbl.anchor(top: avatar.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 30, paddingLeft: 70, paddingRight: 70)
-        bioLbl.centerX(inView: tile)
-        
-        tile.addSubview(tempLbl)
-        tempLbl.anchor(top: bioLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 10, paddingLeft: 70, paddingRight: 70)
-        tempLbl.centerX(inView: tile)
-        
-        let stack = UIStackView(arrangedSubviews: [firstNameTF, lastNameTF, indexTF, countryTF])
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.spacing = 30
-        tile.addSubview(stack)
-        stack.anchor(top: tempLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 60, paddingLeft: 16, paddingRight: 16)
         
         tile.addSubview(updateButton)
         updateButton.anchor(left: tile.leftAnchor, bottom: tile.bottomAnchor, right: tile.rightAnchor, height: 60)
@@ -168,6 +158,28 @@ class ProfileViewController: UIViewController {
         tile.addSubview(separatorView)
         separatorView.anchor(left: tile.leftAnchor, bottom: updateButton.topAnchor, right: tile.rightAnchor, paddingLeft: 8, paddingRight: 8, height: 0.75)
         
+        tile.addSubview(scrollView)
+        scrollView.anchor(top: tile.topAnchor, left: tile.leftAnchor, bottom: separatorView.topAnchor, right: tile.rightAnchor)
+        
+        scrollView.addSubview(avatar)
+        avatar.anchor(top: scrollView.topAnchor, paddingTop: 30, width: 100, height: 100)
+        avatar.centerX(inView: scrollView)
+        
+        scrollView.addSubview(bioLbl)
+        bioLbl.anchor(top: avatar.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 30, paddingLeft: 70, paddingRight: 70)
+        bioLbl.centerX(inView: scrollView)
+        
+        scrollView.addSubview(tempLbl)
+        tempLbl.anchor(top: bioLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 10, paddingLeft: 70, paddingRight: 70)
+        tempLbl.centerX(inView: scrollView)
+        
+        let stack = UIStackView(arrangedSubviews: [firstNameTF, lastNameTF, indexTF, countryTF])
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.spacing = 30
+        scrollView.addSubview(stack)
+        stack.anchor(top: tempLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
+        
         return tile
     }()
     
@@ -176,6 +188,7 @@ class ProfileViewController: UIViewController {
         safeArea = view.layoutMarginsGuide
         fetchUserData()
         configUI()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Selectors
