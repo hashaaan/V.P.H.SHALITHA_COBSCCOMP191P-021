@@ -75,6 +75,8 @@ class FullMapViewController: UIViewController {
     
     func fetchOtherUsers() {
         guard let location = locationManager?.location else { return }
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
         Service.shared.fetchUsersLocation(location: location) { (user) in
             guard let coordinate = user.location?.coordinate else { return }
             let annotation = UserAnnotation(uid: user.uid, coordinate: coordinate)
@@ -99,8 +101,11 @@ class FullMapViewController: UIViewController {
             }
             
             if !usersVisible {
-                if temp >= 38.0 && result >= 3 {
-                    self.mapView.addAnnotation(annotation)
+                // ignore own annotation
+                if user.uid != currentUid {
+                    if temp >= 38.0 && result >= 3 {
+                        self.mapView.addAnnotation(annotation)
+                    }
                 }
             }
         }

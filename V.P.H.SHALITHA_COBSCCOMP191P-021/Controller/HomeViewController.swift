@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import FirebaseAuth
+import GeoFire
+import AVFoundation
 
 private let reuseIdentifier = "LocationCell"
 private let annotationIdentifier = "UserAnnotation"
@@ -240,6 +242,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.fetchOtherUsers()
+        self.updateUserLocation()
     }
     
     // MARK: - Selectors
@@ -273,6 +276,7 @@ class HomeViewController: UIViewController {
     
     func fetchOtherUsers() {
         guard let location = locationManager?.location else { return }
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
         
         Service.shared.fetchUsersLocation(location: location) { (user) in
             guard let coordinate = user.location?.coordinate else { return }
@@ -299,13 +303,36 @@ class HomeViewController: UIViewController {
             }
             
             if !usersVisible {
-                if temp >= 38.0 && result >= 3 {
-                    self.mapView.addAnnotation(annotation)
-                    self.notifyUser()
+                // ignore own annotation
+                if user.uid != currentUid {
+                    if temp >= 38.0 && result >= 3 {
+                        self.mapView.addAnnotation(annotation)
+                        self.notifyUser()
+                    }
                 }
             }
         }
         
+    }
+    
+    func updateUserLocation() {
+        
+        guard let location = locationManager?.location else { return }
+
+        //location.isEmpty {
+
+        let uid = (Auth.auth().currentUser?.uid)!
+        let geoFire = GeoFire(firebaseRef: REF_USER_LOCATIONS)
+            
+        geoFire.setLocation(location, forKey: uid) { (error) in
+            if (error != nil) {
+                print("An error occured: \(error!)")
+            } else {
+                print("Saved location successfully!")
+            }
+        }
+
+        //}
     }
     
     // MARK: - Helper Function
@@ -361,6 +388,7 @@ class HomeViewController: UIViewController {
     
     func notifyUser() {
         if !UIApplication.topViewController()!.isKind(of: UIAlertController.self) {
+            AudioServicesPlayAlertSound(SystemSoundID(1322))
             let alert = UIAlertController(title: "Warning!", message: "Possible COVID-19 infected person found near you", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
