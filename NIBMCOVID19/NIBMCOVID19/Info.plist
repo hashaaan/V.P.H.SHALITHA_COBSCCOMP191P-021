@@ -18,8 +18,20 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Please allow us to access your location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Please allow us to access your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow us to access your location</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Please allow us to access your Face ID</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow us to access your Camera</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

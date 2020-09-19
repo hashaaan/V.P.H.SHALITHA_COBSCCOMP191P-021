@@ -21,6 +21,81 @@
 		D686FCEC251661D8004ED547 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D686FCEB251661D8004ED547 /* GoogleService-Info.plist */; };
 		D686FCED251661D8004ED547 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D686FCEB251661D8004ED547 /* GoogleService-Info.plist */; };
 		D686FCEE251661D8004ED547 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D686FCEB251661D8004ED547 /* GoogleService-Info.plist */; };
+		D686FCFF25166F25004ED547 /* CreateNotificVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF225166F23004ED547 /* CreateNotificVC.swift */; };
+		D686FD0025166F25004ED547 /* CreateNotificVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF225166F23004ED547 /* CreateNotificVC.swift */; };
+		D686FD0125166F25004ED547 /* CreateNotificVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF225166F23004ED547 /* CreateNotificVC.swift */; };
+		D686FD0225166F25004ED547 /* SafeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF325166F23004ED547 /* SafeActionsViewController.swift */; };
+		D686FD0325166F25004ED547 /* SafeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF325166F23004ED547 /* SafeActionsViewController.swift */; };
+		D686FD0425166F25004ED547 /* SafeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF325166F23004ED547 /* SafeActionsViewController.swift */; };
+		D686FD0525166F25004ED547 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF425166F24004ED547 /* ProfileViewController.swift */; };
+		D686FD0625166F25004ED547 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF425166F24004ED547 /* ProfileViewController.swift */; };
+		D686FD0725166F25004ED547 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF425166F24004ED547 /* ProfileViewController.swift */; };
+		D686FD0825166F25004ED547 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF525166F24004ED547 /* MainTabBarController.swift */; };
+		D686FD0925166F25004ED547 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF525166F24004ED547 /* MainTabBarController.swift */; };
+		D686FD0A25166F25004ED547 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF525166F24004ED547 /* MainTabBarController.swift */; };
+		D686FD0B25166F25004ED547 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF625166F24004ED547 /* ContactViewController.swift */; };
+		D686FD0C25166F25004ED547 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF625166F24004ED547 /* ContactViewController.swift */; };
+		D686FD0D25166F25004ED547 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF625166F24004ED547 /* ContactViewController.swift */; };
+		D686FD0E25166F25004ED547 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF725166F24004ED547 /* SignUpViewController.swift */; };
+		D686FD0F25166F25004ED547 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF725166F24004ED547 /* SignUpViewController.swift */; };
+		D686FD1025166F25004ED547 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF725166F24004ED547 /* SignUpViewController.swift */; };
+		D686FD1125166F25004ED547 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF825166F24004ED547 /* UpdateViewController.swift */; };
+		D686FD1225166F25004ED547 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF825166F24004ED547 /* UpdateViewController.swift */; };
+		D686FD1325166F25004ED547 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF825166F24004ED547 /* UpdateViewController.swift */; };
+		D686FD1425166F25004ED547 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF925166F24004ED547 /* SignInViewController.swift */; };
+		D686FD1525166F25004ED547 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF925166F24004ED547 /* SignInViewController.swift */; };
+		D686FD1625166F25004ED547 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCF925166F24004ED547 /* SignInViewController.swift */; };
+		D686FD1725166F25004ED547 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFA25166F25004ED547 /* NotificationsVC.swift */; };
+		D686FD1825166F25004ED547 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFA25166F25004ED547 /* NotificationsVC.swift */; };
+		D686FD1925166F25004ED547 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFA25166F25004ED547 /* NotificationsVC.swift */; };
+		D686FD1A25166F25004ED547 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFB25166F25004ED547 /* HomeViewController.swift */; };
+		D686FD1B25166F25004ED547 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFB25166F25004ED547 /* HomeViewController.swift */; };
+		D686FD1C25166F25004ED547 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFB25166F25004ED547 /* HomeViewController.swift */; };
+		D686FD1D25166F25004ED547 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFC25166F25004ED547 /* AuthViewController.swift */; };
+		D686FD1E25166F25004ED547 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFC25166F25004ED547 /* AuthViewController.swift */; };
+		D686FD1F25166F25004ED547 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFC25166F25004ED547 /* AuthViewController.swift */; };
+		D686FD2025166F25004ED547 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFD25166F25004ED547 /* SettingsViewController.swift */; };
+		D686FD2125166F25004ED547 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFD25166F25004ED547 /* SettingsViewController.swift */; };
+		D686FD2225166F25004ED547 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFD25166F25004ED547 /* SettingsViewController.swift */; };
+		D686FD2325166F25004ED547 /* FullMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFE25166F25004ED547 /* FullMapViewController.swift */; };
+		D686FD2425166F25004ED547 /* FullMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFE25166F25004ED547 /* FullMapViewController.swift */; };
+		D686FD2525166F25004ED547 /* FullMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FCFE25166F25004ED547 /* FullMapViewController.swift */; };
+		D686FD2C25166F49004ED547 /* SurveyVC03.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2725166F47004ED547 /* SurveyVC03.swift */; };
+		D686FD2D25166F49004ED547 /* SurveyVC03.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2725166F47004ED547 /* SurveyVC03.swift */; };
+		D686FD2E25166F49004ED547 /* SurveyVC03.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2725166F47004ED547 /* SurveyVC03.swift */; };
+		D686FD2F25166F49004ED547 /* SurveyVC04.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2825166F47004ED547 /* SurveyVC04.swift */; };
+		D686FD3025166F49004ED547 /* SurveyVC04.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2825166F47004ED547 /* SurveyVC04.swift */; };
+		D686FD3125166F49004ED547 /* SurveyVC04.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2825166F47004ED547 /* SurveyVC04.swift */; };
+		D686FD3225166F49004ED547 /* SurveyVC01.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2925166F47004ED547 /* SurveyVC01.swift */; };
+		D686FD3325166F49004ED547 /* SurveyVC01.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2925166F47004ED547 /* SurveyVC01.swift */; };
+		D686FD3425166F49004ED547 /* SurveyVC01.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2925166F47004ED547 /* SurveyVC01.swift */; };
+		D686FD3525166F49004ED547 /* SurveyVC05.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2A25166F48004ED547 /* SurveyVC05.swift */; };
+		D686FD3625166F49004ED547 /* SurveyVC05.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2A25166F48004ED547 /* SurveyVC05.swift */; };
+		D686FD3725166F49004ED547 /* SurveyVC05.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2A25166F48004ED547 /* SurveyVC05.swift */; };
+		D686FD3825166F49004ED547 /* SurveyVC02.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2B25166F49004ED547 /* SurveyVC02.swift */; };
+		D686FD3925166F49004ED547 /* SurveyVC02.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2B25166F49004ED547 /* SurveyVC02.swift */; };
+		D686FD3A25166F49004ED547 /* SurveyVC02.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD2B25166F49004ED547 /* SurveyVC02.swift */; };
+		D686FD3C25166F77004ED547 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD3B25166F77004ED547 /* Service.swift */; };
+		D686FD3D25166F77004ED547 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD3B25166F77004ED547 /* Service.swift */; };
+		D686FD3E25166F77004ED547 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD3B25166F77004ED547 /* Service.swift */; };
+		D686FD4325166FDC004ED547 /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4025166FDB004ED547 /* UserAnnotation.swift */; };
+		D686FD4425166FDC004ED547 /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4025166FDB004ED547 /* UserAnnotation.swift */; };
+		D686FD4525166FDC004ED547 /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4025166FDB004ED547 /* UserAnnotation.swift */; };
+		D686FD4625166FDC004ED547 /* Notific.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4125166FDB004ED547 /* Notific.swift */; };
+		D686FD4725166FDC004ED547 /* Notific.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4125166FDB004ED547 /* Notific.swift */; };
+		D686FD4825166FDC004ED547 /* Notific.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4125166FDB004ED547 /* Notific.swift */; };
+		D686FD4925166FDC004ED547 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4225166FDC004ED547 /* User.swift */; };
+		D686FD4A25166FDC004ED547 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4225166FDC004ED547 /* User.swift */; };
+		D686FD4B25166FDC004ED547 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4225166FDC004ED547 /* User.swift */; };
+		D686FD4E25166FF9004ED547 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4C25166FF8004ED547 /* Extensions.swift */; };
+		D686FD4F25166FF9004ED547 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4C25166FF8004ED547 /* Extensions.swift */; };
+		D686FD5025166FF9004ED547 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4C25166FF8004ED547 /* Extensions.swift */; };
+		D686FD5125166FF9004ED547 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4D25166FF9004ED547 /* LocationHandler.swift */; };
+		D686FD5225166FF9004ED547 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4D25166FF9004ED547 /* LocationHandler.swift */; };
+		D686FD5325166FF9004ED547 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD4D25166FF9004ED547 /* LocationHandler.swift */; };
+		D686FD5625167262004ED547 /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5525167262004ED547 /* AuthUIButton.swift */; };
+		D686FD5725167262004ED547 /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5525167262004ED547 /* AuthUIButton.swift */; };
+		D686FD5825167262004ED547 /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5525167262004ED547 /* AuthUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +138,31 @@
 		D686FCDD25165A8E004ED547 /* NIBMCOVID19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIBMCOVID19UITests.swift; sourceTree = "<group>"; };
 		D686FCDF25165A8E004ED547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D686FCEB251661D8004ED547 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D686FCF225166F23004ED547 /* CreateNotificVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNotificVC.swift; sourceTree = "<group>"; };
+		D686FCF325166F23004ED547 /* SafeActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeActionsViewController.swift; sourceTree = "<group>"; };
+		D686FCF425166F24004ED547 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D686FCF525166F24004ED547 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		D686FCF625166F24004ED547 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		D686FCF725166F24004ED547 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D686FCF825166F24004ED547 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		D686FCF925166F24004ED547 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D686FCFA25166F25004ED547 /* NotificationsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		D686FCFB25166F25004ED547 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D686FCFC25166F25004ED547 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		D686FCFD25166F25004ED547 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D686FCFE25166F25004ED547 /* FullMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullMapViewController.swift; sourceTree = "<group>"; };
+		D686FD2725166F47004ED547 /* SurveyVC03.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyVC03.swift; sourceTree = "<group>"; };
+		D686FD2825166F47004ED547 /* SurveyVC04.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyVC04.swift; sourceTree = "<group>"; };
+		D686FD2925166F47004ED547 /* SurveyVC01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyVC01.swift; sourceTree = "<group>"; };
+		D686FD2A25166F48004ED547 /* SurveyVC05.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyVC05.swift; sourceTree = "<group>"; };
+		D686FD2B25166F49004ED547 /* SurveyVC02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyVC02.swift; sourceTree = "<group>"; };
+		D686FD3B25166F77004ED547 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		D686FD4025166FDB004ED547 /* UserAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
+		D686FD4125166FDB004ED547 /* Notific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notific.swift; sourceTree = "<group>"; };
+		D686FD4225166FDC004ED547 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D686FD4C25166FF8004ED547 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D686FD4D25166FF9004ED547 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		D686FD5525167262004ED547 /* AuthUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUIButton.swift; sourceTree = "<group>"; };
 		E7C40991D8053232423EB778 /* Pods_NIBMCOVID19Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBMCOVID19Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB618E78AB5802F501E52E9A /* Pods-NIBMCOVID19-NIBMCOVID19UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCOVID19-NIBMCOVID19UITests.release.xcconfig"; path = "Target Support Files/Pods-NIBMCOVID19-NIBMCOVID19UITests/Pods-NIBMCOVID19-NIBMCOVID19UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +243,11 @@
 		D686FCB725165A8C004ED547 /* NIBMCOVID19 */ = {
 			isa = PBXGroup;
 			children = (
+				D686FCEF25166ED6004ED547 /* Service */,
+				D686FCF025166EEB004ED547 /* Utils */,
+				D686FD3F25166FBF004ED547 /* Model */,
+				D686FD542516724D004ED547 /* View */,
+				D686FCF125166EF9004ED547 /* Controller */,
 				D686FCB825165A8C004ED547 /* AppDelegate.swift */,
 				D686FCBA25165A8C004ED547 /* SceneDelegate.swift */,
 				D686FCBC25165A8C004ED547 /* ViewController.swift */,
@@ -171,6 +276,74 @@
 				D686FCDF25165A8E004ED547 /* Info.plist */,
 			);
 			path = NIBMCOVID19UITests;
+			sourceTree = "<group>";
+		};
+		D686FCEF25166ED6004ED547 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D686FD3B25166F77004ED547 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D686FCF025166EEB004ED547 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D686FD4C25166FF8004ED547 /* Extensions.swift */,
+				D686FD4D25166FF9004ED547 /* LocationHandler.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D686FCF125166EF9004ED547 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D686FD2625166F2E004ED547 /* Survey */,
+				D686FCFC25166F25004ED547 /* AuthViewController.swift */,
+				D686FCF625166F24004ED547 /* ContactViewController.swift */,
+				D686FCF225166F23004ED547 /* CreateNotificVC.swift */,
+				D686FCFE25166F25004ED547 /* FullMapViewController.swift */,
+				D686FCFB25166F25004ED547 /* HomeViewController.swift */,
+				D686FCF525166F24004ED547 /* MainTabBarController.swift */,
+				D686FCFA25166F25004ED547 /* NotificationsVC.swift */,
+				D686FCF425166F24004ED547 /* ProfileViewController.swift */,
+				D686FCF325166F23004ED547 /* SafeActionsViewController.swift */,
+				D686FCFD25166F25004ED547 /* SettingsViewController.swift */,
+				D686FCF925166F24004ED547 /* SignInViewController.swift */,
+				D686FCF725166F24004ED547 /* SignUpViewController.swift */,
+				D686FCF825166F24004ED547 /* UpdateViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D686FD2625166F2E004ED547 /* Survey */ = {
+			isa = PBXGroup;
+			children = (
+				D686FD2925166F47004ED547 /* SurveyVC01.swift */,
+				D686FD2B25166F49004ED547 /* SurveyVC02.swift */,
+				D686FD2725166F47004ED547 /* SurveyVC03.swift */,
+				D686FD2825166F47004ED547 /* SurveyVC04.swift */,
+				D686FD2A25166F48004ED547 /* SurveyVC05.swift */,
+			);
+			path = Survey;
+			sourceTree = "<group>";
+		};
+		D686FD3F25166FBF004ED547 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D686FD4125166FDB004ED547 /* Notific.swift */,
+				D686FD4225166FDC004ED547 /* User.swift */,
+				D686FD4025166FDB004ED547 /* UserAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D686FD542516724D004ED547 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D686FD5525167262004ED547 /* AuthUIButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,8 +587,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D686FD4925166FDC004ED547 /* User.swift in Sources */,
+				D686FD4E25166FF9004ED547 /* Extensions.swift in Sources */,
+				D686FD5625167262004ED547 /* AuthUIButton.swift in Sources */,
+				D686FD1125166F25004ED547 /* UpdateViewController.swift in Sources */,
+				D686FD3C25166F77004ED547 /* Service.swift in Sources */,
+				D686FCFF25166F25004ED547 /* CreateNotificVC.swift in Sources */,
+				D686FD0225166F25004ED547 /* SafeActionsViewController.swift in Sources */,
+				D686FD3525166F49004ED547 /* SurveyVC05.swift in Sources */,
+				D686FD0825166F25004ED547 /* MainTabBarController.swift in Sources */,
 				D686FCBD25165A8C004ED547 /* ViewController.swift in Sources */,
+				D686FD1A25166F25004ED547 /* HomeViewController.swift in Sources */,
+				D686FD0E25166F25004ED547 /* SignUpViewController.swift in Sources */,
+				D686FD4325166FDC004ED547 /* UserAnnotation.swift in Sources */,
+				D686FD2F25166F49004ED547 /* SurveyVC04.swift in Sources */,
+				D686FD2025166F25004ED547 /* SettingsViewController.swift in Sources */,
+				D686FD1D25166F25004ED547 /* AuthViewController.swift in Sources */,
+				D686FD2C25166F49004ED547 /* SurveyVC03.swift in Sources */,
+				D686FD3825166F49004ED547 /* SurveyVC02.swift in Sources */,
 				D686FCC325165A8C004ED547 /* NIBMCOVID19.xcdatamodeld in Sources */,
+				D686FD2325166F25004ED547 /* FullMapViewController.swift in Sources */,
+				D686FD5125166FF9004ED547 /* LocationHandler.swift in Sources */,
+				D686FD1725166F25004ED547 /* NotificationsVC.swift in Sources */,
+				D686FD0B25166F25004ED547 /* ContactViewController.swift in Sources */,
+				D686FD3225166F49004ED547 /* SurveyVC01.swift in Sources */,
+				D686FD1425166F25004ED547 /* SignInViewController.swift in Sources */,
+				D686FD4625166FDC004ED547 /* Notific.swift in Sources */,
+				D686FD0525166F25004ED547 /* ProfileViewController.swift in Sources */,
 				D686FCB925165A8C004ED547 /* AppDelegate.swift in Sources */,
 				D686FCBB25165A8C004ED547 /* SceneDelegate.swift in Sources */,
 			);
@@ -425,7 +623,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D686FD4725166FDC004ED547 /* Notific.swift in Sources */,
+				D686FD5725167262004ED547 /* AuthUIButton.swift in Sources */,
+				D686FD2D25166F49004ED547 /* SurveyVC03.swift in Sources */,
+				D686FD3325166F49004ED547 /* SurveyVC01.swift in Sources */,
 				D686FCD325165A8D004ED547 /* NIBMCOVID19Tests.swift in Sources */,
+				D686FD1825166F25004ED547 /* NotificationsVC.swift in Sources */,
+				D686FD0F25166F25004ED547 /* SignUpViewController.swift in Sources */,
+				D686FD0325166F25004ED547 /* SafeActionsViewController.swift in Sources */,
+				D686FD4425166FDC004ED547 /* UserAnnotation.swift in Sources */,
+				D686FD1E25166F25004ED547 /* AuthViewController.swift in Sources */,
+				D686FD3925166F49004ED547 /* SurveyVC02.swift in Sources */,
+				D686FD3025166F49004ED547 /* SurveyVC04.swift in Sources */,
+				D686FD0925166F25004ED547 /* MainTabBarController.swift in Sources */,
+				D686FD3625166F49004ED547 /* SurveyVC05.swift in Sources */,
+				D686FD0625166F25004ED547 /* ProfileViewController.swift in Sources */,
+				D686FD1525166F25004ED547 /* SignInViewController.swift in Sources */,
+				D686FD5225166FF9004ED547 /* LocationHandler.swift in Sources */,
+				D686FD2425166F25004ED547 /* FullMapViewController.swift in Sources */,
+				D686FD1B25166F25004ED547 /* HomeViewController.swift in Sources */,
+				D686FD0025166F25004ED547 /* CreateNotificVC.swift in Sources */,
+				D686FD2125166F25004ED547 /* SettingsViewController.swift in Sources */,
+				D686FD4F25166FF9004ED547 /* Extensions.swift in Sources */,
+				D686FD3D25166F77004ED547 /* Service.swift in Sources */,
+				D686FD0C25166F25004ED547 /* ContactViewController.swift in Sources */,
+				D686FD1225166F25004ED547 /* UpdateViewController.swift in Sources */,
+				D686FD4A25166FDC004ED547 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +656,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D686FD4825166FDC004ED547 /* Notific.swift in Sources */,
+				D686FD5825167262004ED547 /* AuthUIButton.swift in Sources */,
+				D686FD2E25166F49004ED547 /* SurveyVC03.swift in Sources */,
+				D686FD3425166F49004ED547 /* SurveyVC01.swift in Sources */,
 				D686FCDE25165A8E004ED547 /* NIBMCOVID19UITests.swift in Sources */,
+				D686FD1925166F25004ED547 /* NotificationsVC.swift in Sources */,
+				D686FD1025166F25004ED547 /* SignUpViewController.swift in Sources */,
+				D686FD0425166F25004ED547 /* SafeActionsViewController.swift in Sources */,
+				D686FD4525166FDC004ED547 /* UserAnnotation.swift in Sources */,
+				D686FD1F25166F25004ED547 /* AuthViewController.swift in Sources */,
+				D686FD3A25166F49004ED547 /* SurveyVC02.swift in Sources */,
+				D686FD3125166F49004ED547 /* SurveyVC04.swift in Sources */,
+				D686FD0A25166F25004ED547 /* MainTabBarController.swift in Sources */,
+				D686FD3725166F49004ED547 /* SurveyVC05.swift in Sources */,
+				D686FD0725166F25004ED547 /* ProfileViewController.swift in Sources */,
+				D686FD1625166F25004ED547 /* SignInViewController.swift in Sources */,
+				D686FD5325166FF9004ED547 /* LocationHandler.swift in Sources */,
+				D686FD2525166F25004ED547 /* FullMapViewController.swift in Sources */,
+				D686FD1C25166F25004ED547 /* HomeViewController.swift in Sources */,
+				D686FD0125166F25004ED547 /* CreateNotificVC.swift in Sources */,
+				D686FD2225166F25004ED547 /* SettingsViewController.swift in Sources */,
+				D686FD5025166FF9004ED547 /* Extensions.swift in Sources */,
+				D686FD3E25166F77004ED547 /* Service.swift in Sources */,
+				D686FD0D25166F25004ED547 /* ContactViewController.swift in Sources */,
+				D686FD1325166F25004ED547 /* UpdateViewController.swift in Sources */,
+				D686FD4B25166FDC004ED547 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
