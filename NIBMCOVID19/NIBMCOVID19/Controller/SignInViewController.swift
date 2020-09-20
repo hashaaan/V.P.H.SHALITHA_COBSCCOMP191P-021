@@ -93,24 +93,30 @@ class SignInViewController: UIViewController {
             self.present(alert, animated: true)
             return
         }
+        
+        signinButton.titleLabel?.text = "Loading ..."
        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-           if let error = error {
-               print("DEBUG: Faild to log user \(error.localizedDescription)")
-               return
-           }
-           
-           let keyWindow = UIApplication.shared.connectedScenes
-           .filter({$0.activationState == .foregroundActive})
-           .map({$0 as? UIWindowScene})
-           .compactMap({$0})
-           .first?.windows
-           .filter({$0.isKeyWindow}).first
-           
-           guard let controller = keyWindow?.rootViewController as? MainTabBarController else { return }
-           controller.configTabBar()
-           
-           self.dismiss(animated: true, completion: nil)
+            
+            if let error = error {
+                print("DEBUG: Faild to log user \(error.localizedDescription)")
+                self.signinButton.titleLabel?.text = "Sign In"
+                return
+            }
+
+            let keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+            
+            self.signinButton.titleLabel?.text = "Sign In"
+
+            guard let controller = keyWindow?.rootViewController as? MainTabBarController else { return }
+            controller.configTabBar()
+
+            self.dismiss(animated: true, completion: nil)
        }
     }
     

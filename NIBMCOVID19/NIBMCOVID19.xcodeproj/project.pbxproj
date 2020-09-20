@@ -96,6 +96,9 @@
 		D686FD5625167262004ED547 /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5525167262004ED547 /* AuthUIButton.swift */; };
 		D686FD5725167262004ED547 /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5525167262004ED547 /* AuthUIButton.swift */; };
 		D686FD5825167262004ED547 /* AuthUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5525167262004ED547 /* AuthUIButton.swift */; };
+		D686FD5A25167EBA004ED547 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5925167EBA004ED547 /* Calculation.swift */; };
+		D686FD5B25167EBA004ED547 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5925167EBA004ED547 /* Calculation.swift */; };
+		D686FD5C25167EBA004ED547 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686FD5925167EBA004ED547 /* Calculation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +166,7 @@
 		D686FD4C25166FF8004ED547 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D686FD4D25166FF9004ED547 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		D686FD5525167262004ED547 /* AuthUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUIButton.swift; sourceTree = "<group>"; };
+		D686FD5925167EBA004ED547 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		E7C40991D8053232423EB778 /* Pods_NIBMCOVID19Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBMCOVID19Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB618E78AB5802F501E52E9A /* Pods-NIBMCOVID19-NIBMCOVID19UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBMCOVID19-NIBMCOVID19UITests.release.xcconfig"; path = "Target Support Files/Pods-NIBMCOVID19-NIBMCOVID19UITests/Pods-NIBMCOVID19-NIBMCOVID19UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,6 +295,7 @@
 			children = (
 				D686FD4C25166FF8004ED547 /* Extensions.swift */,
 				D686FD4D25166FF9004ED547 /* LocationHandler.swift */,
+				D686FD5925167EBA004ED547 /* Calculation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				D686FD2C25166F49004ED547 /* SurveyVC03.swift in Sources */,
 				D686FD3825166F49004ED547 /* SurveyVC02.swift in Sources */,
 				D686FCC325165A8C004ED547 /* NIBMCOVID19.xcdatamodeld in Sources */,
+				D686FD5A25167EBA004ED547 /* Calculation.swift in Sources */,
 				D686FD2325166F25004ED547 /* FullMapViewController.swift in Sources */,
 				D686FD5125166FF9004ED547 /* LocationHandler.swift in Sources */,
 				D686FD1725166F25004ED547 /* NotificationsVC.swift in Sources */,
@@ -633,6 +639,7 @@
 				D686FD0325166F25004ED547 /* SafeActionsViewController.swift in Sources */,
 				D686FD4425166FDC004ED547 /* UserAnnotation.swift in Sources */,
 				D686FD1E25166F25004ED547 /* AuthViewController.swift in Sources */,
+				D686FD5B25167EBA004ED547 /* Calculation.swift in Sources */,
 				D686FD3925166F49004ED547 /* SurveyVC02.swift in Sources */,
 				D686FD3025166F49004ED547 /* SurveyVC04.swift in Sources */,
 				D686FD0925166F25004ED547 /* MainTabBarController.swift in Sources */,
@@ -666,6 +673,7 @@
 				D686FD0425166F25004ED547 /* SafeActionsViewController.swift in Sources */,
 				D686FD4525166FDC004ED547 /* UserAnnotation.swift in Sources */,
 				D686FD1F25166F25004ED547 /* AuthViewController.swift in Sources */,
+				D686FD5C25167EBA004ED547 /* Calculation.swift in Sources */,
 				D686FD3A25166F49004ED547 /* SurveyVC02.swift in Sources */,
 				D686FD3125166F49004ED547 /* SurveyVC04.swift in Sources */,
 				D686FD0A25166F25004ED547 /* MainTabBarController.swift in Sources */,
@@ -883,7 +891,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NIBMCOVID19.app/NIBMCOVID19";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NIBM COVID19.app/NIBM COVID19";
 			};
 			name = Debug;
 		};
@@ -906,7 +914,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NIBMCOVID19.app/NIBMCOVID19";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NIBM COVID19.app/NIBM COVID19";
 			};
 			name = Release;
 		};

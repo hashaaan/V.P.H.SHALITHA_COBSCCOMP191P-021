@@ -32,10 +32,33 @@ class ContactViewController: UIViewController {
         return label
     }()
     
-    private let blankView: UIView = {
-        let blank = UIView()
-        blank.backgroundColor = .white
-        return blank
+    private let mainTile: UIView = {
+        let tile = UIView()
+        tile.backgroundColor = .white
+        
+        let headOfficeLbl = UILabel()
+        headOfficeLbl.text = "HEAD OFFICE"
+        headOfficeLbl.adjustsFontSizeToFitWidth = true
+        headOfficeLbl.font = UIFont.systemFont(ofSize: 18)
+        headOfficeLbl.textAlignment = .center
+        headOfficeLbl.textColor = .black
+        
+        tile.addSubview(headOfficeLbl)
+        headOfficeLbl.anchor(top: tile.topAnchor, paddingTop: 40)
+        headOfficeLbl.centerX(inView: tile)
+        
+        let phoneLbl = UILabel()
+        phoneLbl.text = "Phone No : +94 117 321 000"
+        phoneLbl.adjustsFontSizeToFitWidth = true
+        phoneLbl.font = UIFont.systemFont(ofSize: 14)
+        phoneLbl.textAlignment = .center
+        phoneLbl.textColor = .black
+        
+        tile.addSubview(phoneLbl)
+        phoneLbl.anchor(top: headOfficeLbl.bottomAnchor, paddingTop: 40)
+        phoneLbl.centerX(inView: tile)
+        
+        return tile
     }()
 
     override func viewDidLoad() {
@@ -58,8 +81,8 @@ class ContactViewController: UIViewController {
         titleLbl.centerX(inView: view)
         view.addSubview(backButton)
         backButton.anchor(top: safeArea.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 16, width: 38, height: 38)
-        view.addSubview(blankView)
-        blankView.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, bottom: safeArea.bottomAnchor, right: view.rightAnchor, paddingTop: 20)
+        view.addSubview(mainTile)
+        mainTile.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     }
     
     func configNavBar() {

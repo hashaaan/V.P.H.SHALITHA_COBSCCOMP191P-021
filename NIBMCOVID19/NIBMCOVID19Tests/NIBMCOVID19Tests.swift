@@ -7,28 +7,29 @@
 //
 
 import XCTest
-@testable import NIBMCOVID19
+@testable import NIBM_COVID19
 
 class NIBMCOVID19Tests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testAddNumbers() {
+        let cal = Calculation()
+        let result = cal.addNumbers(x: 2, y: 2)
+        
+        XCTAssertEqual(result, 4)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testMultiplyNumbers() {
+        let cal = Calculation()
+        let result = cal.multiplyNumbers(x: 4, y: 2)
+        
+        XCTAssertEqual(result, 8)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testDivideNumbers() {
+        let cal = Calculation()
+        let result = cal.divideNumbers(x: 16, y: 4)
+        
+        XCTAssertEqual(result, 4)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }

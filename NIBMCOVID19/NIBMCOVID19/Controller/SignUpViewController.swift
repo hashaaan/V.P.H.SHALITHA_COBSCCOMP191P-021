@@ -170,8 +170,11 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        signupButton.titleLabel?.text = "Loading ..."
+        
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
+                self.signupButton.titleLabel?.text = "Create an Account"
                 print("Faild to signup user : \(error)")
                 return
             }
@@ -190,6 +193,10 @@ class SignUpViewController: UIViewController {
             guard let location = self.location else { return }
                 
             geoFire.setLocation(location, forKey: uid, withCompletionBlock: { (error) in
+                if let error = error {
+                    self.signupButton.titleLabel?.text = "Create an Account"
+                    print("Faild to signup user : \(error)")
+                }
                 self.uploadUserDataAndShowHomeController(uid: uid, values: values)
             })
         

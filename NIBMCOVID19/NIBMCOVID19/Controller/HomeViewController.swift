@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import FirebaseAuth
 import GeoFire
-import AVFoundation
+import LocalAuthentication
 
 private let reuseIdentifier = "LocationCell"
 private let annotationIdentifier = "UserAnnotation"
@@ -241,7 +241,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.fetchOtherUsers()
+        //self.fetchOtherUsers()
         self.updateUserLocation()
     }
     
@@ -293,7 +293,6 @@ class HomeViewController: UIViewController {
                     if userAnno.uid == user.uid {
                         if temp >= 38.0 && result >= 3 {
                             userAnno.updateAnnotationPosition(withCoordinate: coordinate)
-                            self.notifyUser()
                             return true
                         }
                     }
@@ -307,7 +306,6 @@ class HomeViewController: UIViewController {
                 if user.uid != currentUid {
                     if temp >= 38.0 && result >= 3 {
                         self.mapView.addAnnotation(annotation)
-                        self.notifyUser()
                     }
                 }
             }
@@ -330,6 +328,19 @@ class HomeViewController: UIViewController {
                     print("Saved location successfully!")
                 }
             }
+        }
+    }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: AuthViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        } catch {
+            print("DEBUG: sign out error!")
         }
     }
     
@@ -380,18 +391,44 @@ class HomeViewController: UIViewController {
             }
         } else {
             configController()
+            faceID()
         }
     }
     
-    func notifyUser() {
-        if !UIApplication.topViewController()!.isKind(of: UIAlertController.self) {
-            AudioServicesPlayAlertSound(SystemSoundID(1322))
-            let alert = UIAlertController(title: "Warning!", message: "Possible COVID-19 infected person found near you", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
+    // MARK:- Face ID
+    
+    func faceID(){
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Confirm Identify!"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                [weak self] success, authenticationError in
+                
+                DispatchQueue.main.async {
+                    if success {
+                        let ac = UIAlertController(title: "Success!", message: "You have authenticated sucessfully.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+                        self?.present(ac, animated: true)
+                    } else {
+                        let ac = UIAlertController(title: "Failed!", message: "You could not be verified. Please try again.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+                        self?.signOut()
+                        //  self?.present(ac, animated: true)
+                        self?.dismiss(animated: true, completion: nil)
+                        
+                    }
+                }
+            }
+        }
+        else {
+            let ac = UIAlertController(title: "Biometry unavailable!", message: "Your device is not configured for biometric authentication.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(ac, animated: true)
         }
     }
-    
 }
 
 // MARK: - MKMapViewDelegate

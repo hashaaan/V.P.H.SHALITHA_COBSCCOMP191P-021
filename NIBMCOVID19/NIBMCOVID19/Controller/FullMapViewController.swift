@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import FirebaseAuth
+import AVFoundation
 
 private let reuseIdentifier = "LocationCell"
 private let annotationIdentifier = "UserAnnotation"
@@ -92,6 +93,7 @@ class FullMapViewController: UIViewController {
                     if userAnno.uid == user.uid {
                         if temp >= 38.0 && result >= 3 {
                             userAnno.updateAnnotationPosition(withCoordinate: coordinate)
+                            self.notifyUser()
                             return true
                         }
                     }
@@ -105,6 +107,7 @@ class FullMapViewController: UIViewController {
                 if user.uid != currentUid {
                     if temp >= 38.0 && result >= 3 {
                         self.mapView.addAnnotation(annotation)
+                        self.notifyUser()
                     }
                 }
             }
@@ -136,6 +139,15 @@ class FullMapViewController: UIViewController {
     func configNavBar() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .default
+    }
+    
+    func notifyUser() {
+        if !UIApplication.topViewController()!.isKind(of: UIAlertController.self) {
+            AudioServicesPlayAlertSound(SystemSoundID(1322))
+            let alert = UIAlertController(title: "Warning!", message: "Possible COVID-19 infected person found near you", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
 
 }
