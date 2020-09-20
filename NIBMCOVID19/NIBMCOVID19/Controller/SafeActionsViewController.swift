@@ -95,9 +95,9 @@ class SafeActionsViewController: UIViewController {
             imageView.image = UIImage(named: images[x])
             imageTile.addSubview(imageView)
             if x == 0 {
-                imageView.anchor(width: 400, height: 373)
+                imageView.anchor(width: 380, height: 355)
             } else {
-                imageView.anchor(width: 400, height: 300)
+                imageView.anchor(width: 380, height: 285)
             }
             imageView.centerX(inView: imageTile)
             imageView.centerY(inView: imageTile)

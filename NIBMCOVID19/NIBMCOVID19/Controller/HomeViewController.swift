@@ -241,7 +241,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.fetchOtherUsers()
+        self.fetchOtherUsers()
         self.updateUserLocation()
     }
     
@@ -293,8 +293,10 @@ class HomeViewController: UIViewController {
                     if userAnno.uid == user.uid {
                         if temp >= 38.0 && result >= 3 {
                             userAnno.updateAnnotationPosition(withCoordinate: coordinate)
-                            return true
+                        } else {
+                            self.mapView.removeAnnotation(annotation)
                         }
+                        return true
                     }
                     
                     return false
