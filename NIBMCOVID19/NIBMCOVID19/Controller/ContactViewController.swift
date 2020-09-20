@@ -58,6 +58,37 @@ class ContactViewController: UIViewController {
         phoneLbl.anchor(top: headOfficeLbl.bottomAnchor, paddingTop: 40)
         phoneLbl.centerX(inView: tile)
         
+        let addrLbl = UILabel()
+        addrLbl.text = "Address: 120/5 Vidya Mawatha, Colombo 07, Sri Lanka"
+        addrLbl.numberOfLines = 2
+        addrLbl.font = UIFont.systemFont(ofSize: 14)
+        addrLbl.textAlignment = .center
+        addrLbl.textColor = .black
+        
+        tile.addSubview(addrLbl)
+        addrLbl.anchor(top: phoneLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 40, paddingLeft: 50, paddingRight: 50)
+        
+        let aboutTitle = UILabel()
+        aboutTitle.text = "ABOUT US"
+        addrLbl.adjustsFontSizeToFitWidth = true
+        addrLbl.font = UIFont.systemFont(ofSize: 18)
+        addrLbl.textAlignment = .center
+        addrLbl.textColor = .black
+        
+        tile.addSubview(aboutTitle)
+        aboutTitle.anchor(top: addrLbl.bottomAnchor, paddingTop: 50)
+        aboutTitle.centerX(inView: tile)
+        
+        let aboutDes = UILabel()
+        aboutDes.text = "Address: 120/5 Vidya Mawatha, Colombo 07, Sri Lanka"
+        aboutDes.numberOfLines = 6
+        aboutDes.font = UIFont.systemFont(ofSize: 14)
+        aboutDes.textAlignment = .center
+        aboutDes.textColor = .black
+        
+        tile.addSubview(addrLbl)
+        addrLbl.anchor(top: phoneLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 40, paddingLeft: 50, paddingRight: 50)
+        
         return tile
     }()
 
@@ -82,7 +113,7 @@ class ContactViewController: UIViewController {
         view.addSubview(backButton)
         backButton.anchor(top: safeArea.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 16, width: 38, height: 38)
         view.addSubview(mainTile)
-        mainTile.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        mainTile.anchor(top: titleLbl.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 20)
     }
     
     func configNavBar() {

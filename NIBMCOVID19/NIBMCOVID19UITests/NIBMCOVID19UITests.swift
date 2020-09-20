@@ -9,7 +9,62 @@
 import XCTest
 
 class NIBMCOVID19UITests: XCTestCase {
-    //
+    
+    func testSignIn() throws {
+        
+        let validEmail = "shalithavidanapathirana@gmail.com"
+        let validPassword = "123456"
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["Already have an account?"].tap()
+        
+        let emailField = app.textFields["Email"]
+        XCTAssertTrue(emailField.exists)
+        
+        emailField.tap()
+        emailField.typeText(validEmail)
+        
+        let passwordField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordField.exists)
+        
+        passwordField.tap()
+        passwordField.typeText(validPassword)
+        
+        app.buttons["Sign In"].tap()
+        
+    }
+    
+    func testLoginValidations() throws {
+        
+        let validEmail = "shalithavidanapathirana@gmail.com"
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["Already have an account?"].tap()
+        
+        let emailTextField = app.textFields["Email"]
+        XCTAssertTrue(emailTextField.exists)
+        
+        let signInButton = app.buttons["Sign In"]
+        signInButton.tap()
+        
+        app.alerts["Email is Required!"].scrollViews.otherElements.buttons["Ok"].tap()
+        
+        emailTextField.tap()
+        emailTextField.typeText(validEmail)
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        
+        signInButton.tap()
+        
+        app.alerts["Password is Required!"].scrollViews.otherElements.buttons["Ok"].tap()
+        
+    }
+    
 }
 
 
@@ -26,14 +81,7 @@ class NIBMCOVID19UITests: XCTestCase {
 //        // Put teardown code here. This method is called after the invocation of each test method in the class.
 //    }
 //
-//    func testExample() throws {
-//        // UI tests must launch the application that they test.
-//        let app = XCUIApplication()
-//        app.launch()
-//
-//        // Use recording to get started writing UI tests.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//    }
+
 //
 //    func testLaunchPerformance() throws {
 //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
