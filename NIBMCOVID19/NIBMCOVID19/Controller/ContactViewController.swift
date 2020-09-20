@@ -80,14 +80,24 @@ class ContactViewController: UIViewController {
         aboutTitle.centerX(inView: tile)
         
         let aboutDes = UILabel()
-        aboutDes.text = "Address: 120/5 Vidya Mawatha, Colombo 07, Sri Lanka"
-        aboutDes.numberOfLines = 6
-        aboutDes.font = UIFont.systemFont(ofSize: 14)
-        aboutDes.textAlignment = .center
-        aboutDes.textColor = .black
+        aboutDes.text = "NIBM COVID19 is a location based tracking system which allows students to determine the possible COVID-19 infected patients aroud the 50m radius and also this application send notifications of new updates and news from NIBM."
+        aboutDes.numberOfLines = 10
+        aboutDes.font = UIFont.systemFont(ofSize: 12)
+        aboutDes.textAlignment = .justified
+        aboutDes.textColor = .darkGray
         
-        tile.addSubview(addrLbl)
-        addrLbl.anchor(top: phoneLbl.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 40, paddingLeft: 50, paddingRight: 50)
+        let version = UILabel()
+        version.text = "V 1.0"
+        version.font = UIFont.systemFont(ofSize: 14)
+        version.textAlignment = .justified
+        version.textColor = .systemGray
+        
+        tile.addSubview(version)
+        version.anchor(bottom: tile.bottomAnchor, paddingBottom: 30)
+        version.centerX(inView: tile)
+        
+        tile.addSubview(aboutDes)
+        aboutDes.anchor(top: aboutTitle.bottomAnchor, left: tile.leftAnchor, right: tile.rightAnchor, paddingTop: 30, paddingLeft: 50, paddingRight: 50)
         
         return tile
     }()

@@ -34,6 +34,8 @@ class NIBMCOVID19UITests: XCTestCase {
         
         app.buttons["Sign In"].tap()
         
+        //waitForExpectations(timeout: 5, handler: nil)
+        
     }
     
     func testLoginValidations() throws {

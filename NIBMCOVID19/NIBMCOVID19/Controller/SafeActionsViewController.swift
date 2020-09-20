@@ -72,7 +72,7 @@ class SafeActionsViewController: UIViewController {
         
         // setup scrollview
         let screensize: CGRect = view.bounds
-        let titles = ["Wash Your Hands", "Location", "All Set"]
+        let titles = ["Always Wash Your Hands", "Avoid Touching Your Face", "Keep the Distance Between", "Try to Stay at Home"]
         
         view.backgroundColor = .systemGray6
         view.addSubview(topNav)
@@ -81,33 +81,39 @@ class SafeActionsViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.anchor(top: topNav.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         
-        for x in 0..<3 {
+        for x in 0..<4 {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * screensize.width, y: 0, width: screensize.width, height: screensize.height-titleLbl.frame.size.height))
             scrollView.addSubview(pageView)
             
             // title, image, button
-            let label = UILabel(frame: CGRect(x:  10, y: 10, width: pageView.frame.size.width-20, height: 80))
+            let label = UILabel(frame: CGRect(x:  10, y: 10, width: pageView.frame.size.width-20, height: 20))
             let imageView = UIImageView(frame: CGRect(x:  10, y: 10+120+10, width: pageView.frame.size.width-20, height: pageView.frame.size.height-60-130-15))
-//            let button = UIButton(type: .system)
+            
             let button = UIButton(frame: CGRect(x:  10, y: pageView.frame.size.height-60, width: pageView.frame.size.width-20, height: 50))
             
             label.textAlignment = .center
             label.font = UIFont(name: "MarkerFelt-Wide", size: 24)
-            //label.font = UIFont(name: "Chalkduster", size: 24)
-            //label.font = UIFont(name: "ChalkboardSE-Bold", size: 24)
             pageView.addSubview(label)
             label.text = titles[x]
             
             imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named: "welcome_\(x)")
+            imageView.image = UIImage(named: "SFA01")
             pageView.addSubview(imageView)
+            imageView.anchor(top: label.bottomAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, paddingLeft: 20, paddingRight: 20)
             
-//            let buttonTitle = NSMutableAttributedString(string: "NEXT", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.gray])
-//            button.setAttributedTitle(buttonTitle, for: .normal)
+            let titleLbl = UILabel()
+            titleLbl.text = titles[x]
+            titleLbl.textAlignment = .center
+            //titleLbl.font = UIF
+            pageView.addSubview(titleLbl)
+            titleLbl.anchor(top: imageView.bottomAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingRight: 20)
+            
             button.setTitle("NEXT", for: .normal)
+            
             if(x == 2) {
                button.setTitle("DONE!", for: .normal)
             }
+            
             button.setTitleColor(.gray, for: .normal)
             button.addTarget(self, action: #selector(handleTapNext(_:)), for: .touchUpInside)
             button.tag = x+1
@@ -116,8 +122,9 @@ class SafeActionsViewController: UIViewController {
             //nextButton.centerX(inView: view)
         }
         
-        scrollView.contentSize = CGSize(width: screensize.width * 3 , height: 0)
+        scrollView.contentSize = CGSize(width: screensize.width * 4 , height: 0)
         scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
          
     }
     

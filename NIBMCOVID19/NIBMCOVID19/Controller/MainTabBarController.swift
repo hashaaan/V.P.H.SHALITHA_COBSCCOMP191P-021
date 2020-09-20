@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         tabBar.barTintColor = .white
         tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .darkGray
+        tabBar.unselectedItemTintColor = .systemGray
         configTabBar()
     }
     
