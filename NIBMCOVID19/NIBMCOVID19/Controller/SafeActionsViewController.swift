@@ -72,7 +72,9 @@ class SafeActionsViewController: UIViewController {
         
         // setup scrollview
         let screensize: CGRect = view.bounds
-        let titles = ["Always Wash Your Hands", "Avoid Touching Your Face", "Keep the Distance Between", "Try to Stay at Home"]
+        let titles = ["Clean yourself", "Avoid Touching Your Face", "Keep the Distance Between", "Limit Physical contact with others"]
+        let subTitles = ["When and How to Wash Your Hands", "When and How to Wash Your Hands", "When and How to Wash Your Hands", "When and How to Wash Your Hands"]
+        let images = ["SFA01", "SFA02", "SFA03", "SFA04"]
         
         view.backgroundColor = .systemGray6
         view.addSubview(topNav)
@@ -85,29 +87,39 @@ class SafeActionsViewController: UIViewController {
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * screensize.width, y: 0, width: screensize.width, height: screensize.height-titleLbl.frame.size.height))
             scrollView.addSubview(pageView)
             
-            // title, image, button
-            let label = UILabel(frame: CGRect(x:  10, y: 10, width: pageView.frame.size.width-20, height: 20))
-            let imageView = UIImageView(frame: CGRect(x:  10, y: 10+120+10, width: pageView.frame.size.width-20, height: pageView.frame.size.height-60-130-15))
+            let imageTile = UIView()
+            pageView.addSubview(imageTile)
+            imageTile.anchor(top: pageView.topAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, height: 400)
             
-            let button = UIButton(frame: CGRect(x:  10, y: pageView.frame.size.height-60, width: pageView.frame.size.width-20, height: 50))
-            
-            label.textAlignment = .center
-            label.font = UIFont(name: "MarkerFelt-Wide", size: 24)
-            pageView.addSubview(label)
-            label.text = titles[x]
-            
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named: "SFA01")
-            pageView.addSubview(imageView)
-            imageView.anchor(top: label.bottomAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, paddingLeft: 20, paddingRight: 20)
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: images[x])
+            imageTile.addSubview(imageView)
+            if x == 0 {
+                imageView.anchor(width: 400, height: 373)
+            } else {
+                imageView.anchor(width: 400, height: 300)
+            }
+            imageView.centerX(inView: imageTile)
+            imageView.centerY(inView: imageTile)
             
             let titleLbl = UILabel()
             titleLbl.text = titles[x]
             titleLbl.textAlignment = .center
-            //titleLbl.font = UIF
+            titleLbl.font = UIFont.boldSystemFont(ofSize: 24)
+            titleLbl.adjustsFontSizeToFitWidth = true
             pageView.addSubview(titleLbl)
-            titleLbl.anchor(top: imageView.bottomAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingRight: 20)
+            titleLbl.anchor(top: imageTile.bottomAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, paddingTop: 30, paddingLeft: 20, paddingRight: 20)
             
+            let subTitleLbl = UILabel()
+            subTitleLbl.text = subTitles[x]
+            subTitleLbl.textAlignment = .center
+            subTitleLbl.font = UIFont.systemFont(ofSize: 14)
+            subTitleLbl.textColor = .systemGray
+            subTitleLbl.adjustsFontSizeToFitWidth = true
+            pageView.addSubview(subTitleLbl)
+            subTitleLbl.anchor(top: titleLbl.bottomAnchor, left: pageView.leftAnchor, right: pageView.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingRight: 20)
+            
+            let button = UIButton(frame: CGRect(x:  10, y: pageView.frame.size.height-60, width: pageView.frame.size.width-20, height: 50))
             button.setTitle("NEXT", for: .normal)
             
             if(x == 2) {
